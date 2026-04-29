@@ -1,0 +1,20 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "v_QBLE5hjIlG3SzMSYCsO"
+uri = "file://artifacts/healthcare/public/images/hero.jpg"
+type = "image"
+title = "warm natural modern medical clinic reception waiting room, soft lighting, calm"
+
+[[outputs]]
+id = "MzhB9_dLQsAanuJ72_YTE"
+uri = "file://artifacts/healthcare/public/images/about.jpg"
+type = "image"
+title = "warm friendly doctor consulting with patient in modern clinic room"
+
+[[outputs]]
+id = "bWaTCX3QUHNZXNVAxhqLW"
+uri = "file://artifacts/healthcare/public/images/service-bg.jpg"
+type = "image"
+title = "abstract modern health service concept, warm tones, wellness"

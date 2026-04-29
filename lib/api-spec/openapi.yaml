@@ -3,20 +3,26 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Meridian Health API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
-    description: Health operations
+  - name: providers
+  - name: services
+  - name: locations
+  - name: appointments
+  - name: contact
+  - name: testimonials
+  - name: insights
+  - name: stats
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +30,233 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /providers:
+    get:
+      operationId: listProviders
+      tags: [providers]
+      summary: List all providers
+      parameters:
+        - in: query
+          name: specialty
+          schema:
+            type: string
+        - in: query
+          name: locationId
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Provider list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Provider"
+  /providers/featured:
+    get:
+      operationId: listFeaturedProviders
+      tags: [providers]
+      summary: Highlighted providers for the homepage
+      responses:
+        "200":
+          description: Featured providers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Provider"
+  /providers/{id}:
+    get:
+      operationId: getProvider
+      tags: [providers]
+      summary: Get provider by id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Provider
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Provider"
+
+  /services:
+    get:
+      operationId: listServices
+      tags: [services]
+      summary: List clinical service lines
+      responses:
+        "200":
+          description: Service list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Service"
+  /services/{slug}:
+    get:
+      operationId: getService
+      tags: [services]
+      summary: Get service detail
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Service detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Service"
+
+  /locations:
+    get:
+      operationId: listLocations
+      tags: [locations]
+      summary: List clinic locations
+      responses:
+        "200":
+          description: Location list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Location"
+  /locations/{id}:
+    get:
+      operationId: getLocation
+      tags: [locations]
+      summary: Get location detail
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Location detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Location"
+
+  /appointments:
+    post:
+      operationId: requestAppointment
+      tags: [appointments]
+      summary: Submit an appointment request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppointmentRequest"
+      responses:
+        "201":
+          description: Appointment request created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Appointment"
+
+  /contact:
+    post:
+      operationId: submitContact
+      tags: [contact]
+      summary: Submit a contact message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactRequest"
+      responses:
+        "201":
+          description: Contact submission accepted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactSubmission"
+
+  /testimonials:
+    get:
+      operationId: listTestimonials
+      tags: [testimonials]
+      summary: Patient testimonials
+      responses:
+        "200":
+          description: Testimonials
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Testimonial"
+
+  /insights:
+    get:
+      operationId: listInsights
+      tags: [insights]
+      summary: Health insight articles
+      parameters:
+        - in: query
+          name: category
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Insights
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Insight"
+  /insights/{slug}:
+    get:
+      operationId: getInsight
+      tags: [insights]
+      summary: Get insight detail
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Insight detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Insight"
+
+  /stats/overview:
+    get:
+      operationId: getStatsOverview
+      tags: [stats]
+      summary: Network-wide stat overview for the homepage
+      responses:
+        "200":
+          description: Overview stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StatsOverview"
+
 components:
   schemas:
     HealthStatus:
@@ -31,6 +264,250 @@ components:
       properties:
         status:
           type: string
-      required:
-        - status
+      required: [status]
 
+    Provider:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        credentials: { type: string }
+        specialty: { type: string }
+        bio: { type: string }
+        photoUrl: { type: string }
+        yearsExperience: { type: integer }
+        languages:
+          type: array
+          items: { type: string }
+        education:
+          type: array
+          items: { type: string }
+        acceptingNewPatients: { type: boolean }
+        locationIds:
+          type: array
+          items: { type: string }
+        rating: { type: number }
+        reviewCount: { type: integer }
+      required:
+        - id
+        - name
+        - credentials
+        - specialty
+        - bio
+        - photoUrl
+        - yearsExperience
+        - languages
+        - education
+        - acceptingNewPatients
+        - locationIds
+        - rating
+        - reviewCount
+
+    Service:
+      type: object
+      properties:
+        id: { type: string }
+        slug: { type: string }
+        name: { type: string }
+        tagline: { type: string }
+        description: { type: string }
+        icon: { type: string }
+        imageUrl: { type: string }
+        highlights:
+          type: array
+          items: { type: string }
+        conditionsTreated:
+          type: array
+          items: { type: string }
+      required:
+        - id
+        - slug
+        - name
+        - tagline
+        - description
+        - icon
+        - imageUrl
+        - highlights
+        - conditionsTreated
+
+    Location:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        addressLine1: { type: string }
+        addressLine2: { type: string, nullable: true }
+        city: { type: string }
+        state: { type: string }
+        postalCode: { type: string }
+        phone: { type: string }
+        imageUrl: { type: string }
+        hours:
+          type: array
+          items:
+            $ref: "#/components/schemas/HoursEntry"
+        services:
+          type: array
+          items: { type: string }
+      required:
+        - id
+        - name
+        - addressLine1
+        - city
+        - state
+        - postalCode
+        - phone
+        - imageUrl
+        - hours
+        - services
+
+    HoursEntry:
+      type: object
+      properties:
+        day: { type: string }
+        opens: { type: string }
+        closes: { type: string }
+      required: [day, opens, closes]
+
+    AppointmentRequest:
+      type: object
+      properties:
+        firstName: { type: string, minLength: 1 }
+        lastName: { type: string, minLength: 1 }
+        email: { type: string, format: email }
+        phone: { type: string, minLength: 7 }
+        dateOfBirth: { type: string }
+        providerId: { type: string, nullable: true }
+        serviceId: { type: string }
+        locationId: { type: string }
+        preferredDate: { type: string }
+        preferredTime: { type: string }
+        isNewPatient: { type: boolean }
+        notes: { type: string, nullable: true }
+      required:
+        - firstName
+        - lastName
+        - email
+        - phone
+        - dateOfBirth
+        - serviceId
+        - locationId
+        - preferredDate
+        - preferredTime
+        - isNewPatient
+
+    Appointment:
+      type: object
+      properties:
+        id: { type: string }
+        firstName: { type: string }
+        lastName: { type: string }
+        email: { type: string }
+        phone: { type: string }
+        dateOfBirth: { type: string }
+        providerId: { type: string, nullable: true }
+        serviceId: { type: string }
+        locationId: { type: string }
+        preferredDate: { type: string }
+        preferredTime: { type: string }
+        isNewPatient: { type: boolean }
+        notes: { type: string, nullable: true }
+        status: { type: string }
+        createdAt: { type: string, format: date-time }
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - phone
+        - dateOfBirth
+        - serviceId
+        - locationId
+        - preferredDate
+        - preferredTime
+        - isNewPatient
+        - status
+        - createdAt
+
+    ContactRequest:
+      type: object
+      properties:
+        name: { type: string, minLength: 1 }
+        email: { type: string, format: email }
+        phone: { type: string, nullable: true }
+        topic: { type: string }
+        message: { type: string, minLength: 5 }
+      required: [name, email, topic, message]
+
+    ContactSubmission:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        email: { type: string }
+        phone: { type: string, nullable: true }
+        topic: { type: string }
+        message: { type: string }
+        createdAt: { type: string, format: date-time }
+      required: [id, name, email, topic, message, createdAt]
+
+    Testimonial:
+      type: object
+      properties:
+        id: { type: string }
+        patientName: { type: string }
+        patientLocation: { type: string }
+        rating: { type: integer }
+        quote: { type: string }
+        serviceName: { type: string }
+        providerName: { type: string }
+      required:
+        - id
+        - patientName
+        - patientLocation
+        - rating
+        - quote
+        - serviceName
+        - providerName
+
+    Insight:
+      type: object
+      properties:
+        id: { type: string }
+        slug: { type: string }
+        title: { type: string }
+        excerpt: { type: string }
+        body: { type: string }
+        category: { type: string }
+        readMinutes: { type: integer }
+        coverImageUrl: { type: string }
+        authorName: { type: string }
+        publishedAt: { type: string, format: date-time }
+      required:
+        - id
+        - slug
+        - title
+        - excerpt
+        - body
+        - category
+        - readMinutes
+        - coverImageUrl
+        - authorName
+        - publishedAt
+
+    StatsOverview:
+      type: object
+      properties:
+        providerCount: { type: integer }
+        locationCount: { type: integer }
+        patientsServed: { type: integer }
+        averageRating: { type: number }
+        yearsInCommunity: { type: integer }
+        sameDayAvailability: { type: boolean }
+      required:
+        - providerCount
+        - locationCount
+        - patientsServed
+        - averageRating
+        - yearsInCommunity
+        - sameDayAvailability
