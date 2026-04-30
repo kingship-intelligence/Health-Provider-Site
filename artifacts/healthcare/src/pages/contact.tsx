@@ -52,7 +52,7 @@ export default function Contact() {
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-6">Contact Us</h1>
           <p className="text-lg text-muted-foreground">
-            Have a question? We're here to help. Send us a message or reach out to a specific clinic.
+            Have a question? We're here to help. Send us a message or reach out to our clinic directly.
           </p>
         </div>
       </div>

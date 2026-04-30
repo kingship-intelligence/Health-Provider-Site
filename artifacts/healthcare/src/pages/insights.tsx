@@ -21,7 +21,7 @@ export default function Insights() {
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-6">Health Insights</h1>
           <p className="text-lg text-muted-foreground mb-10">
-            Expert advice, wellness tips, and news from the Meridian Health team.
+            Expert advice, wellness tips, and clinical perspectives from the Meridian Psychiatry team.
           </p>
           
           <div className="flex flex-wrap justify-center gap-2">

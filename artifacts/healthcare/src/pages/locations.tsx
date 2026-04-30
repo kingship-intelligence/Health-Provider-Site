@@ -13,7 +13,7 @@ export default function Locations() {
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-serif mb-6">Our Locations</h1>
           <p className="text-lg text-muted-foreground">
-            Convenient, beautifully designed neighborhood clinics. Find a Meridian Health center near you.
+            A calm, beautifully designed clinic in the heart of North Park. Come visit us in person.
           </p>
         </div>
       </div>

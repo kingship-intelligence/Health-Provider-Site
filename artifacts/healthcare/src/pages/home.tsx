@@ -30,7 +30,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-5xl md:text-6xl font-serif text-foreground mb-6 leading-tight"
             >
-              Healthcare that feels like <span className="text-primary italic">home</span>.
+              Mental health care that feels like <span className="text-primary italic">a long exhale</span>.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-lg md:text-xl text-muted-foreground mb-8"
             >
-              A modern, patient-centered network bringing warm, expert care back to your neighborhood. No cold waiting rooms. No rushed visits.
+              A modern psychiatry clinic offering thoughtful evaluations, careful medication management, and evidence-based therapy — all under one calm roof.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export default function Home() {
                 <Button size="lg" className="text-base h-14 px-8 rounded-full">Request Appointment</Button>
               </Link>
               <Link href="/locations">
-                <Button size="lg" variant="outline" className="text-base h-14 px-8 rounded-full bg-background/50 backdrop-blur">Find a Location</Button>
+                <Button size="lg" variant="outline" className="text-base h-14 px-8 rounded-full bg-background/50 backdrop-blur">Visit Our Clinic</Button>
               </Link>
             </motion.div>
           </div>
@@ -68,11 +68,11 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-4xl font-serif mb-2">{stats.providerCount}</p>
-                <p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Expert Providers</p>
+                <p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Psychiatrists & Therapists</p>
               </div>
               <div>
-                <p className="text-4xl font-serif mb-2">{stats.locationCount}</p>
-                <p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Neighborhood Clinics</p>
+                <p className="text-4xl font-serif mb-2">{stats.yearsInCommunity}</p>
+                <p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Years in Community</p>
               </div>
               <div>
                 <p className="text-4xl font-serif mb-2">{stats.averageRating.toFixed(1)}/5</p>
@@ -129,7 +129,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
             <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-serif mb-4">Meet our clinical leaders</h2>
+              <h2 className="text-3xl md:text-4xl font-serif mb-4">Meet our clinicians</h2>
               <p className="text-muted-foreground text-lg">Experienced, compassionate providers who take the time to listen.</p>
             </div>
             <Link href="/providers" className="hidden md:block">

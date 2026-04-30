@@ -17,7 +17,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="font-serif text-xl font-medium text-primary">Meridian Health</span>
+          <span className="font-serif text-xl font-medium text-primary">Meridian Psychiatry</span>
         </Link>
         
         <nav className="hidden md:flex gap-6 items-center">

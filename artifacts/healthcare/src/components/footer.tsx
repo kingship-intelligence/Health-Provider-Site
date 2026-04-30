@@ -6,9 +6,9 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-serif text-xl font-medium text-primary mb-4">Meridian Health</h3>
+            <h3 className="font-serif text-xl font-medium text-primary mb-4">Meridian Psychiatry</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              A modern multi-specialty healthcare network providing warm, patient-centered care in your neighborhood.
+              A modern psychiatry clinic offering thoughtful, unhurried mental health care for adults, teens, and children.
             </p>
           </div>
           <div>
@@ -36,7 +36,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Meridian Health. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Meridian Psychiatry. All rights reserved.</p>
         </div>
       </div>
     </footer>

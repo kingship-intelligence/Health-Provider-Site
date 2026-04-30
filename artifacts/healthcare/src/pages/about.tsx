@@ -11,9 +11,9 @@ export default function About() {
       {/* Hero */}
       <section className="pt-24 pb-20 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h1 className="text-4xl md:text-5xl font-serif mb-6">About Meridian Health</h1>
+          <h1 className="text-4xl md:text-5xl font-serif mb-6">About Meridian Psychiatry</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            We are reimagining neighborhood healthcare. By combining modern clinical excellence with warm, intentional hospitality, we create a healthcare experience you actually look forward to.
+            We are reimagining what psychiatric care can feel like. By pairing rigorous evidence-based treatment with the warmth and time mental health work actually deserves, we create a clinic experience patients return to with confidence.
           </p>
         </div>
       </section>
@@ -31,12 +31,12 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-serif mb-6">A new standard of care</h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Meridian Health was founded on a simple premise: healthcare shouldn't feel clinical. 
-                  When you are vulnerable, sick, or seeking guidance, you deserve an environment that puts you at ease.
+                  Meridian Psychiatry was founded on a simple premise: mental health care shouldn't feel rushed, transactional, or cold.
+                  When you are reaching out for help, you deserve a space that lets you slow down and be heard.
                 </p>
                 <p>
-                  Our clinics are designed around calmness and transparency. Our providers are selected not just for their clinical excellence, but for their bedside manner and empathy. 
-                  We don't rush appointments. We don't overbook our waiting rooms. We simply provide the care you and your family deserve.
+                  Our clinic is designed around calmness and transparency. Our psychiatrists and therapists are selected not only for their clinical excellence, but for their warmth and depth of presence. 
+                  We schedule longer visits, prescribe carefully, and coordinate therapy and medication as one connected plan.
                 </p>
               </div>
               
@@ -82,30 +82,30 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif mb-4">Our Values</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">The principles that guide every interaction, diagnosis, and treatment plan at Meridian Health.</p>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">The principles that guide every conversation, evaluation, and treatment plan at Meridian Psychiatry.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
             <div className="bg-card p-8 rounded-3xl border shadow-sm text-center">
-              <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                🤝
+              <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="font-serif text-2xl text-primary">I</span>
               </div>
-              <h3 className="text-xl font-medium mb-3">Deep Empathy</h3>
-              <p className="text-muted-foreground">We listen first. We believe understanding your life context is just as important as reading your chart.</p>
+              <h3 className="text-xl font-medium mb-3">Deep Listening</h3>
+              <p className="text-muted-foreground">We listen first. Understanding your story is just as important as reviewing your symptoms.</p>
             </div>
             <div className="bg-card p-8 rounded-3xl border shadow-sm text-center">
-              <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                🔬
+              <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="font-serif text-2xl text-primary">II</span>
               </div>
               <h3 className="text-xl font-medium mb-3">Clinical Excellence</h3>
-              <p className="text-muted-foreground">Warmth without expertise is not enough. Our providers are leaders in their respective fields.</p>
+              <p className="text-muted-foreground">Warmth without expertise is not enough. Our clinicians are leaders in evidence-based psychiatric care.</p>
             </div>
             <div className="bg-card p-8 rounded-3xl border shadow-sm text-center">
-              <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                شف
+              <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="font-serif text-2xl text-primary">III</span>
               </div>
               <h3 className="text-xl font-medium mb-3">Total Transparency</h3>
-              <p className="text-muted-foreground">Clear explanations of your health, clear pricing, and clear expectations for your care journey.</p>
+              <p className="text-muted-foreground">Clear explanations of your treatment plan, clear conversations about medication, and clear expectations every step.</p>
             </div>
           </div>
         </div>

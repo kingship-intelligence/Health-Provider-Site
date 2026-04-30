@@ -81,7 +81,7 @@ export default function Appointments() {
             </div>
             <CardContent className="p-8">
               <p className="text-muted-foreground mb-8">
-                Thank you for choosing Meridian Health. Our team will contact you within 1 business day to confirm your appointment time.
+                Thank you for choosing Meridian Psychiatry. Our team will contact you within 1 business day to confirm your appointment time.
               </p>
               <Button onClick={() => setLocation("/")} className="w-full rounded-full h-12">
                 Return Home
