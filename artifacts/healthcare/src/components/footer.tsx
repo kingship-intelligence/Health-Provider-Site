@@ -9,6 +9,12 @@ const quickLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+const socialLinks = [
+  { href: "https://www.linkedin.com", label: "LinkedIn", icon: "in" },
+  { href: "https://www.instagram.com", label: "Instagram", icon: "ig" },
+  { href: "https://www.facebook.com", label: "Facebook", icon: "f" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-card text-card-foreground border-t mt-auto">
@@ -19,6 +25,20 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground mb-4">
               A modern psychiatry clinic offering thoughtful, unhurried mental health care for adults, teens, and children.
             </p>
+            <div className="flex items-center gap-3">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  aria-label={link.label}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="h-10 w-10 rounded-full border border-border flex items-center justify-center text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
           </div>
           <div>
             <h4 className="font-medium mb-4">Quick Links</h4>
