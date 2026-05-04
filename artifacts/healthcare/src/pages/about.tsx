@@ -8,17 +8,14 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      {/* Hero */}
       <section className="pt-24 pb-20 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h1 className="text-4xl md:text-5xl font-serif mb-6">About Meridian Psychiatry</h1>
+          <h1 className="text-4xl md:text-5xl font-serif mb-6">About Restoration LLC</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             We are reimagining what psychiatric care can feel like. By pairing rigorous evidence-based treatment with the warmth and time mental health work actually deserves, we create a clinic experience patients return to with confidence.
           </p>
         </div>
       </section>
-
-      {/* Image / Story block */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-16 items-center">
@@ -31,15 +28,14 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-serif mb-6">A new standard of care</h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Meridian Psychiatry was founded on a simple premise: mental health care shouldn't feel rushed, transactional, or cold.
+                  Restoration LLC was founded on a simple premise: mental health care shouldn't feel rushed, transactional, or cold.
                   When you are reaching out for help, you deserve a space that lets you slow down and be heard.
                 </p>
                 <p>
-                  Our clinic is designed around calmness and transparency. Our psychiatrists and therapists are selected not only for their clinical excellence, but for their warmth and depth of presence. 
+                  Our clinic is designed around calmness and transparency. Our psychiatrists and therapists are selected not only for their clinical excellence, but for their warmth and depth of presence.
                   We schedule longer visits, prescribe carefully, and coordinate therapy and medication as one connected plan.
                 </p>
               </div>
-              
               <div className="mt-10">
                 <Link href="/providers">
                   <Button size="lg" className="rounded-full px-8">Meet Our Providers</Button>
@@ -49,8 +45,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* Stats */}
       {stats && (
         <section className="py-24 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4">
@@ -76,15 +70,12 @@ export default function About() {
           </div>
         </section>
       )}
-
-      {/* Core Values */}
       <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif mb-4">Our Values</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">The principles that guide every conversation, evaluation, and treatment plan at Meridian Psychiatry.</p>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">The principles that guide every conversation, evaluation, and treatment plan at Restoration LLC.</p>
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
             <div className="bg-card p-8 rounded-3xl border shadow-sm text-center">
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6">

@@ -338,7 +338,7 @@ export const services: ServiceRecord[] = [
 export const locations: LocationRecord[] = [
   {
     id: CLINIC_ID,
-    name: "Meridian Psychiatry",
+    name: "Restoration LLC",
     addressLine1: "412 Linden Avenue",
     addressLine2: "Suite 200",
     city: "North Park",
