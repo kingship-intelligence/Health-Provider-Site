@@ -73,7 +73,7 @@ export const providers: ProviderRecord[] = [
     credentials: "MD",
     specialty: "Adult Psychiatry",
     bio: "Dr. Olayemi Olajuyigbe provides careful, evidence-based psychiatric care for adults managing mood, anxiety, and attention concerns. She is known for clear communication, thoughtful medication decisions, and an unhurried visit style.",
-    photoUrl: "@assets/Dr_Olayemi_Olajuyigbe_1777996052596.png",
+    photoUrl: "/images/dr-olayemi.png",
     yearsExperience: 14,
     languages: ["English"],
     education: ["MD, University of Ibadan", "Psychiatry Residency, University of Lagos"],
