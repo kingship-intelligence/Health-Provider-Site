@@ -189,149 +189,148 @@ export const providers: ProviderRecord[] = [
 
 export const services: ServiceRecord[] = [
   {
-    id: "s_adult_psychiatry",
-    slug: "adult-psychiatry",
-    name: "Adult Psychiatry",
-    tagline: "Thoughtful psychiatric care for adults",
+    id: "s_adhd",
+    slug: "adhd",
+    name: "ADHD",
+    tagline: "Comprehensive assessment and treatment for Attention-Deficit/Hyperactivity Disorder",
     description:
-      "Comprehensive psychiatric evaluation and treatment for adults navigating depression, anxiety, ADHD, OCD, bipolar disorder, and more. We schedule longer visits than most clinics so we can actually understand what is going on.",
-    icon: "stethoscope",
+      "We provide comprehensive psychiatric assessment and treatment for ADHD with careful attention to symptoms, functioning, and your goals.",
+    icon: "ADHD",
     imageUrl:
       "https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=80",
     highlights: [
-      "60-minute initial evaluations",
-      "30-minute follow-ups, never rushed",
-      "Coordinated medication management",
-      "Direct messaging with your care team",
+      "Detailed diagnostic evaluation",
+      "Medication management when appropriate",
+      "Adult and adolescent care",
+      "Coaching and behavioral support",
     ],
-    conditionsTreated: [
-      "Depression",
-      "Anxiety disorders",
-      "ADHD",
-      "OCD",
-      "Bipolar disorder",
-      "Treatment-resistant conditions",
-    ],
+    conditionsTreated: ["Inattention", "Hyperactivity", "Impulsivity", "Executive dysfunction"],
   },
   {
-    id: "s_child_psychiatry",
-    slug: "child-and-adolescent-psychiatry",
-    name: "Child & Adolescent Psychiatry",
-    tagline: "Specialized mental health care for kids and teens",
+    id: "s_depression",
+    slug: "major-depression",
+    name: "Major Depression",
+    tagline: "Evidence-based treatments for depressive disorders",
     description:
-      "Warm, attentive psychiatric care for children and adolescents, with parents fully involved in the process. We work alongside schools and pediatricians to make sure care feels coordinated, not fragmented.",
-    icon: "baby",
-    imageUrl:
-      "https://images.unsplash.com/photo-1632053002434-0489c8932bb3?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Ages 6 through 21",
-      "Bilingual providers available",
-      "Parent and caregiver coaching",
-      "School and pediatrician coordination",
-    ],
-    conditionsTreated: [
-      "ADHD evaluations",
-      "Childhood anxiety",
-      "Adolescent depression",
-      "Behavioral concerns",
-      "Mood disorders",
-    ],
-  },
-  {
-    id: "s_therapy",
-    slug: "therapy-and-psychotherapy",
-    name: "Therapy & Psychotherapy",
-    tagline: "Evidence-based talk therapy",
-    description:
-      "Individual therapy with licensed psychologists and clinical social workers. We match you with a therapist whose style and specialty fit your goals — no guessing, no shuffling.",
-    icon: "message-circle",
-    imageUrl:
-      "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Cognitive Behavioral Therapy (CBT)",
-      "EMDR for trauma",
-      "Acceptance and Commitment Therapy (ACT)",
-      "Personalized therapist matching",
-    ],
-    conditionsTreated: [
-      "Anxiety and depression",
-      "Trauma and PTSD",
-      "Grief and loss",
-      "Stress and burnout",
-      "Life transitions",
-    ],
-  },
-  {
-    id: "s_medication_management",
-    slug: "medication-management",
-    name: "Medication Management",
-    tagline: "Careful, conservative, and clear",
-    description:
-      "Ongoing psychiatric medication management with the time and attention this work deserves. We explain trade-offs honestly, adjust thoughtfully, and never prescribe before we understand the full picture.",
-    icon: "pill",
+      "Evidence-based treatment for depressive disorders, including psychotherapy, medication management, and ongoing support.",
+    icon: "Depression",
     imageUrl:
       "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1200&q=80",
     highlights: [
-      "Conservative, evidence-based prescribing",
-      "Telehealth follow-ups available",
-      "Coordinated with your therapist",
-      "Plain-language explanations of options",
+      "Psychiatric evaluation",
+      "Medication management",
+      "Therapy coordination",
+      "Relapse prevention planning",
     ],
-    conditionsTreated: [
-      "Antidepressant management",
-      "Stimulant management for ADHD",
-      "Mood stabilizer optimization",
-      "Anti-anxiety treatment",
-      "Genetic testing guidance",
-    ],
+    conditionsTreated: ["Persistent sadness", "Low motivation", "Sleep disruption", "Loss of interest"],
   },
   {
-    id: "s_adhd",
-    slug: "adhd-evaluation-and-treatment",
-    name: "ADHD Evaluation & Treatment",
-    tagline: "Clarity, then a plan",
+    id: "s_bipolar",
+    slug: "bipolar-disorder",
+    name: "Bipolar Disorder",
+    tagline: "Specialized care for mood stabilization and management",
     description:
-      "Comprehensive ADHD evaluations for adolescents and adults, followed by a personalized treatment plan combining behavioral strategies, coaching, and — when appropriate — medication.",
-    icon: "compass",
+      "Specialized care focused on mood stabilization, diagnosis, and ongoing management for bipolar disorders.",
+    icon: "Bipolar",
     imageUrl:
-      "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=1200&q=80",
     highlights: [
-      "Structured diagnostic interviews",
-      "Validated rating scales",
-      "Adult and adolescent evaluations",
-      "Coordinated coaching support",
+      "Mood monitoring",
+      "Medication optimization",
+      "Family education",
+      "Long-term follow-up",
     ],
-    conditionsTreated: [
-      "Adult ADHD",
-      "Adolescent ADHD",
-      "Executive function challenges",
-      "Co-occurring anxiety",
-      "Workplace accommodations",
-    ],
+    conditionsTreated: ["Bipolar I", "Bipolar II", "Hypomania", "Mania"],
   },
   {
-    id: "s_trauma",
-    slug: "trauma-and-ptsd-care",
-    name: "Trauma & PTSD Care",
-    tagline: "Specialized support for the hardest experiences",
+    id: "s_anxiety",
+    slug: "anxiety-disorders",
+    name: "Anxiety Disorders",
+    tagline: "Treatment for generalized anxiety, social phobia, and panic disorders",
     description:
-      "Trauma-focused therapy delivered by clinicians specifically trained in evidence-based modalities. We move at your pace, with care and skill.",
-    icon: "shield",
+      "Treatment for generalized anxiety, social phobia, and panic disorders with practical, evidence-based care.",
+    icon: "Anxiety",
     imageUrl:
       "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
     highlights: [
-      "EMDR-trained clinicians",
-      "Trauma-focused CBT",
-      "Phased, paced approach",
-      "Coordinated psychiatric support",
+      "Anxiety assessment",
+      "CBT-informed treatment planning",
+      "Medication support",
+      "Panic management strategies",
     ],
-    conditionsTreated: [
-      "PTSD",
-      "Complex trauma",
-      "Childhood trauma",
-      "Acute stress reactions",
-      "Grief and loss",
+    conditionsTreated: ["Generalized anxiety", "Social phobia", "Panic disorder", "Phobias"],
+  },
+  {
+    id: "s_ptsd",
+    slug: "ptsd",
+    name: "PTSD",
+    tagline: "Trauma-informed care for Post-Traumatic Stress Disorder",
+    description:
+      "Trauma-informed psychiatric care for Post-Traumatic Stress Disorder with sensitivity, structure, and support.",
+    icon: "PTSD",
+    imageUrl:
+      "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
+    highlights: [
+      "Trauma-informed evaluations",
+      "Safety-first treatment approach",
+      "Medication management",
+      "Therapy referral support",
     ],
+    conditionsTreated: ["PTSD", "Acute stress", "Trauma-related symptoms"],
+  },
+  {
+    id: "s_schizophrenia",
+    slug: "schizophrenia",
+    name: "Schizophrenia",
+    tagline: "Comprehensive treatment plans for psychotic disorders",
+    description:
+      "Comprehensive treatment plans for psychotic disorders, centered on stabilization, continuity, and family support.",
+    icon: "Psychosis",
+    imageUrl:
+      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=80",
+    highlights: [
+      "Diagnostic clarity",
+      "Ongoing medication management",
+      "Care coordination",
+      "Supportive family communication",
+    ],
+    conditionsTreated: ["Schizophrenia", "Psychosis", "Schizoaffective disorder"],
+  },
+  {
+    id: "s_substance",
+    slug: "substance-abuse",
+    name: "Substance Abuse",
+    tagline: "Support and treatment for substance use disorders",
+    description:
+      "Support and treatment for substance use disorders with a compassionate, nonjudgmental approach.",
+    icon: "Recovery",
+    imageUrl:
+      "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?auto=format&fit=crop&w=1200&q=80",
+    highlights: [
+      "Recovery-focused planning",
+      "Medication support",
+      "Relapse prevention",
+      "Integrated treatment referrals",
+    ],
+    conditionsTreated: ["Alcohol use disorder", "Opioid use disorder", "Substance misuse"],
+  },
+  {
+    id: "s_ocd",
+    slug: "ocd",
+    name: "OCD",
+    tagline: "Specialized approaches for Obsessive-Compulsive Disorder",
+    description:
+      "Specialized psychiatric approaches for Obsessive-Compulsive Disorder, including careful diagnosis and coordinated treatment.",
+    icon: "OCD",
+    imageUrl:
+      "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?auto=format&fit=crop&w=1200&q=80",
+    highlights: [
+      "Thoughtful assessment",
+      "Medication management",
+      "Therapy collaboration",
+      "Symptom monitoring",
+    ],
+    conditionsTreated: ["Obsessions", "Compulsions", "Intrusive thoughts"],
   },
 ];
 
@@ -357,12 +356,14 @@ export const locations: LocationRecord[] = [
       { day: "Sunday", opens: "Closed", closes: "Closed" },
     ],
     services: [
-      "Adult Psychiatry",
-      "Child & Adolescent Psychiatry",
-      "Therapy & Psychotherapy",
-      "Medication Management",
-      "ADHD Evaluation",
-      "Trauma & PTSD Care",
+      "ADHD",
+      "Major Depression",
+      "Bipolar Disorder",
+      "Anxiety Disorders",
+      "PTSD",
+      "Schizophrenia",
+      "Substance Abuse",
+      "OCD",
     ],
   },
 ];
@@ -430,96 +431,6 @@ export const insights: InsightRecord[] = [
       "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?auto=format&fit=crop&w=1200&q=80",
     authorName: "Dr. Amelia Chen",
     publishedAt: "2026-04-12T10:00:00.000Z",
-  },
-  {
-    id: "i_anxiety",
-    slug: "talking-to-your-doctor-about-anxiety",
-    title: "Talking to Your Psychiatrist About Anxiety",
-    excerpt:
-      "Bringing up anxiety can feel harder than it should. Here is how to start the conversation, and what to expect once you do.",
-    body: insightBody([
-      "Anxiety shows up in many forms — racing thoughts, sleep that won't settle, a tight chest, or a nervous system that just won't downshift. None of these are weakness. They are signals that deserve attention.",
-      "When you bring it up with your psychiatrist, you do not need the perfect words. Saying 'I have not felt like myself' is enough to start. Together you can decide whether therapy, medication, lifestyle adjustments, or some combination is the right next step for you.",
-      "If you are unsure where to begin, schedule an evaluation with one of our psychiatrists. We will take the time to understand the full picture before recommending anything.",
-    ]),
-    category: "Anxiety",
-    readMinutes: 4,
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
-    authorName: "Dr. David Park",
-    publishedAt: "2026-04-04T10:00:00.000Z",
-  },
-  {
-    id: "i_kids_screen_time",
-    slug: "screen-time-and-young-kids-a-realistic-guide",
-    title: "Screen Time and Young Kids: A Realistic Guide",
-    excerpt:
-      "Forget the guilt. Here's a calm, evidence-based approach families can actually live with.",
-    body: insightBody([
-      "Screens are part of modern life — and that is okay. The question is not 'all or none,' but 'when, how, and what.' Co-watching, predictable limits, and protecting sleep are far more important than the exact number of minutes.",
-      "Young brains learn best through faces, language, movement, and play. Build a daily rhythm where screens are one ingredient — not the main course — and watch how naturally things settle.",
-      "If a screen routine has slipped or feels out of control, our child psychiatry team can help you reset, without judgment.",
-    ]),
-    category: "Pediatrics",
-    readMinutes: 3,
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=80",
-    authorName: "Dr. Sofia Rivera",
-    publishedAt: "2026-03-21T10:00:00.000Z",
-  },
-  {
-    id: "i_adhd_adult",
-    slug: "adult-adhd-when-the-pieces-finally-click",
-    title: "Adult ADHD: When the Pieces Finally Click",
-    excerpt:
-      "More adults are recognizing ADHD in themselves than ever before. Here is what evaluation actually looks like — and what comes next.",
-    body: insightBody([
-      "Many adults arrive in our office having spent years feeling 'different' without a name for it. A proper ADHD evaluation is structured, takes time, and considers other conditions that can look similar.",
-      "Treatment is rarely just medication. Coaching, structure, accommodations, and therapy all play a role — and the best plans combine several of them.",
-      "If you have been wondering whether ADHD is part of your story, an evaluation can bring real clarity, even if the answer is no.",
-    ]),
-    category: "ADHD",
-    readMinutes: 5,
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?auto=format&fit=crop&w=1200&q=80",
-    authorName: "Dr. Amelia Chen",
-    publishedAt: "2026-03-08T10:00:00.000Z",
-  },
-  {
-    id: "i_meds",
-    slug: "what-to-expect-when-starting-an-antidepressant",
-    title: "What to Expect When Starting an Antidepressant",
-    excerpt:
-      "Starting medication is a big decision. Here is an honest, plain-language guide to what the first few weeks usually look like.",
-    body: insightBody([
-      "Antidepressants don't work like an off-switch for sadness. Most people notice subtle changes in sleep, appetite, or energy first, with mood improvements following over several weeks.",
-      "Side effects are usually mild and often improve. Stay in close contact with your psychiatrist during the first month — small adjustments can make a meaningful difference.",
-      "If you have questions, please ask. There is no such thing as a wrong question when you are deciding whether and how to take a medication.",
-    ]),
-    category: "Medication",
-    readMinutes: 5,
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1200&q=80",
-    authorName: "Dr. Marcus Okafor",
-    publishedAt: "2026-02-22T10:00:00.000Z",
-  },
-  {
-    id: "i_trauma",
-    slug: "trauma-therapy-what-actually-helps",
-    title: "Trauma Therapy: What Actually Helps",
-    excerpt:
-      "Modern trauma care is gentler, more structured, and more effective than what most people imagine.",
-    body: insightBody([
-      "Effective trauma therapy doesn't require reliving every detail of what happened. Modalities like EMDR and trauma-focused CBT are paced, structured, and proven to help.",
-      "The first step is feeling safe in the room with your clinician. We move at your pace, and we never push you somewhere you are not ready to go.",
-      "If you have been carrying something heavy for a long time, please know there is a path forward — and it is gentler than you might think.",
-    ]),
-    category: "Trauma",
-    readMinutes: 4,
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
-    authorName: "Dr. Priya Anand",
-    publishedAt: "2026-02-10T10:00:00.000Z",
   },
 ];
 

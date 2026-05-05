@@ -8,15 +8,14 @@ export default function Services() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header */}
       <div className="relative py-24 bg-primary text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src="/images/service-bg.jpg" alt="Services" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-serif mb-6">Our Services</h1>
+          <h1 className="text-4xl md:text-5xl font-serif mb-6">We Focus On</h1>
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl">
-            Comprehensive, compassionate care designed for your whole life. From preventative medicine to specialized treatments.
+            Specialized psychiatric care for various mental health conditions.
           </p>
         </div>
       </div>
@@ -24,7 +23,7 @@ export default function Services() {
       <div className="container mx-auto px-4 py-20 flex-1">
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map(i => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
               <Card key={i} className="animate-pulse h-[250px] border-none bg-muted/50 rounded-3xl" />
             ))}
           </div>
@@ -46,7 +45,6 @@ export default function Services() {
                       </div>
                       <h3 className="text-2xl font-serif mb-3">{service.name}</h3>
                       <p className="text-muted-foreground leading-relaxed mb-6">{service.tagline}</p>
-                      
                       <div className="text-primary font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform">
                         Learn more &rarr;
                       </div>

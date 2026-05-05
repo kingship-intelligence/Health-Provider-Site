@@ -9,23 +9,16 @@ export default function ServiceDetail() {
   const { data: service, isLoading } = useGetService(slug || "");
   const { data: providers } = useListProviders({ specialty: service?.name });
 
-  if (isLoading) {
-    return <div className="container mx-auto px-4 py-24 min-h-screen">Loading...</div>;
-  }
-
-  if (!service) {
-    return <div className="container mx-auto px-4 py-24 min-h-screen">Service not found</div>;
-  }
+  if (isLoading) return <div className="container mx-auto px-4 py-24 min-h-screen">Loading...</div>;
+  if (!service) return <div className="container mx-auto px-4 py-24 min-h-screen">Service not found</div>;
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      {/* Header */}
       <div className="bg-muted/30 pt-16 pb-16 border-b">
         <div className="container mx-auto px-4">
           <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground mb-8 inline-block">
             &larr; Back to Services
           </Link>
-          
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="flex-1 max-w-2xl">
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
@@ -34,28 +27,20 @@ export default function ServiceDetail() {
               <h1 className="text-4xl md:text-5xl font-serif mb-4">{service.name}</h1>
               <p className="text-2xl text-muted-foreground font-serif italic mb-6">{service.tagline}</p>
               <p className="text-lg leading-relaxed mb-8">{service.description}</p>
-              
               <Link href={`/appointments?serviceId=${service.id}`}>
                 <Button size="lg" className="rounded-full px-8 h-14 text-base">Request Appointment</Button>
               </Link>
             </div>
-            
             <div className="w-full md:w-1/2">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
-                {service.imageUrl ? (
-                  <img src={service.imageUrl} alt={service.name} className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full bg-secondary/20" />
-                )}
+                <img src={service.imageUrl} alt={service.name} className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          {/* Details */}
           <div className="space-y-12">
             <section>
               <h2 className="text-2xl font-serif mb-6">Highlights</h2>
@@ -70,7 +55,6 @@ export default function ServiceDetail() {
                 ))}
               </ul>
             </section>
-            
             <section>
               <h2 className="text-2xl font-serif mb-6">Conditions Treated</h2>
               <div className="flex flex-wrap gap-2">
@@ -82,8 +66,6 @@ export default function ServiceDetail() {
               </div>
             </section>
           </div>
-
-          {/* Related Providers */}
           <div>
             <div className="bg-muted/30 rounded-3xl p-8 border">
               <h2 className="text-2xl font-serif mb-8">Specialists in {service.name}</h2>
@@ -91,14 +73,12 @@ export default function ServiceDetail() {
                 {providers?.length === 0 ? (
                   <p className="text-muted-foreground">We are currently adding providers for this specialty.</p>
                 ) : (
-                  providers?.slice(0, 3).map(provider => (
+                  providers?.slice(0, 3).map((provider) => (
                     <Link key={provider.id} href={`/providers/${provider.id}`}>
                       <Card className="hover:shadow-md transition-shadow cursor-pointer border-none rounded-2xl">
                         <CardContent className="p-4 flex items-center gap-4">
                           <div className="w-16 h-16 rounded-full overflow-hidden bg-muted shrink-0">
-                            {provider.photoUrl ? (
-                              <img src={provider.photoUrl} alt={provider.name} className="w-full h-full object-cover" />
-                            ) : null}
+                            <img src={provider.photoUrl} alt={provider.name} className="w-full h-full object-cover" />
                           </div>
                           <div>
                             <h3 className="font-medium">{provider.name}, {provider.credentials}</h3>
