@@ -68,122 +68,38 @@ const CLINIC_ID = "loc_meridian";
 
 export const providers: ProviderRecord[] = [
   {
-    id: "p_amelia_chen",
-    name: "Dr. Amelia Chen",
+    id: "p_olayemi_olajuyigbe",
+    name: "Dr. Olayemi Olajuyigbe",
     credentials: "MD",
     specialty: "Adult Psychiatry",
-    bio: "Dr. Chen has spent fifteen years helping adults navigate anxiety, depression, and life transitions. She believes the best psychiatric care begins with listening — slowly, carefully, and without rushing — and combines thoughtful medication management with a deep respect for each patient's story.",
+    bio: "Dr. Olayemi Olajuyigbe provides careful, evidence-based psychiatric care for adults managing mood, anxiety, and attention concerns. She is known for clear communication, thoughtful medication decisions, and an unhurried visit style.",
     photoUrl:
       "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
-    yearsExperience: 15,
-    languages: ["English", "Mandarin"],
-    education: [
-      "MD, Stanford University School of Medicine",
-      "Psychiatry Residency, UCSF",
-    ],
+    yearsExperience: 14,
+    languages: ["English"],
+    education: ["MD, University of Ibadan", "Psychiatry Residency, University of Lagos"],
     acceptingNewPatients: true,
     locationIds: [CLINIC_ID],
     rating: 4.9,
-    reviewCount: 312,
+    reviewCount: 184,
     featured: true,
   },
   {
-    id: "p_marcus_okafor",
-    name: "Dr. Marcus Okafor",
-    credentials: "MD, MPH",
-    specialty: "Adult Psychiatry",
-    bio: "Dr. Okafor focuses on mood disorders, ADHD, and the intersection of physical and mental health. He partners with patients on the long arc of their wellbeing — never rushing toward a prescription before truly understanding the picture.",
-    photoUrl:
-      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80",
-    yearsExperience: 12,
-    languages: ["English", "Yoruba"],
-    education: [
-      "MD, Johns Hopkins University",
-      "Psychiatry Residency, Massachusetts General Hospital",
-    ],
-    acceptingNewPatients: true,
-    locationIds: [CLINIC_ID],
-    rating: 4.8,
-    reviewCount: 248,
-    featured: true,
-  },
-  {
-    id: "p_sofia_rivera",
-    name: "Dr. Sofia Rivera",
+    id: "p_bolanle_olajuyigbe",
+    name: "Dr. Bolanle Olajuyigbe",
     credentials: "MD",
     specialty: "Child & Adolescent Psychiatry",
-    bio: "From early childhood through the teen years, Dr. Rivera is the warm, calm presence families remember. She is bilingual and known for her ability to make even the most anxious child feel heard, while gently guiding parents alongside.",
+    bio: "Dr. Bolanle Olajuyigbe supports children, teens, and families with compassionate psychiatric care. She emphasizes collaboration, practical treatment planning, and helping families feel informed at every step.",
     photoUrl:
       "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80",
-    yearsExperience: 10,
-    languages: ["English", "Spanish"],
-    education: [
-      "MD, University of Pennsylvania",
-      "Child & Adolescent Psychiatry Fellowship, Boston Children's Hospital",
-    ],
-    acceptingNewPatients: true,
-    locationIds: [CLINIC_ID],
-    rating: 5.0,
-    reviewCount: 421,
-    featured: true,
-  },
-  {
-    id: "p_priya_anand",
-    name: "Dr. Priya Anand",
-    credentials: "PsyD",
-    specialty: "Clinical Psychology",
-    bio: "Dr. Anand is a clinical psychologist specializing in cognitive behavioral therapy, EMDR, and trauma-focused care. Her approach is structured, compassionate, and grounded in what the evidence actually shows.",
-    photoUrl:
-      "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=800&q=80",
-    yearsExperience: 9,
-    languages: ["English", "Hindi", "Punjabi"],
-    education: [
-      "PsyD, Columbia University",
-      "Clinical Internship, NYU Langone",
-    ],
-    acceptingNewPatients: true,
-    locationIds: [CLINIC_ID],
-    rating: 4.9,
-    reviewCount: 156,
-    featured: true,
-  },
-  {
-    id: "p_david_park",
-    name: "Dr. David Park",
-    credentials: "DO",
-    specialty: "Adult Psychiatry",
-    bio: "Dr. Park integrates therapy and medication management with a quiet, grounded presence. His patients describe their visits as 'finally feeling heard.' He focuses on depression, OCD, and treatment-resistant conditions.",
-    photoUrl:
-      "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=800&q=80",
-    yearsExperience: 14,
-    languages: ["English", "Korean"],
-    education: [
-      "DO, Philadelphia College of Osteopathic Medicine",
-      "Psychiatry Residency, UCLA",
-    ],
-    acceptingNewPatients: true,
-    locationIds: [CLINIC_ID],
-    rating: 5.0,
-    reviewCount: 273,
-  },
-  {
-    id: "p_natalie_brooks",
-    name: "Natalie Brooks",
-    credentials: "LCSW",
-    specialty: "Psychotherapy",
-    bio: "Natalie is a licensed clinical social worker offering individual therapy for adults navigating anxiety, grief, and life transitions. Her style is warm, direct, and deeply collaborative.",
-    photoUrl:
-      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80",
     yearsExperience: 11,
     languages: ["English"],
-    education: [
-      "MSW, Smith College School for Social Work",
-      "Licensed Clinical Social Worker (LCSW)",
-    ],
+    education: ["MD, University of Lagos", "Child & Adolescent Psychiatry Fellowship"],
     acceptingNewPatients: true,
     locationIds: [CLINIC_ID],
-    rating: 4.9,
-    reviewCount: 142,
+    rating: 5.0,
+    reviewCount: 156,
+    featured: true,
   },
 ];
 
@@ -198,12 +114,7 @@ export const services: ServiceRecord[] = [
     icon: "ADHD",
     imageUrl:
       "https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Detailed diagnostic evaluation",
-      "Medication management when appropriate",
-      "Adult and adolescent care",
-      "Coaching and behavioral support",
-    ],
+    highlights: ["Detailed diagnostic evaluation", "Medication management when appropriate", "Adult and adolescent care", "Coaching and behavioral support"],
     conditionsTreated: ["Inattention", "Hyperactivity", "Impulsivity", "Executive dysfunction"],
   },
   {
@@ -216,12 +127,7 @@ export const services: ServiceRecord[] = [
     icon: "Depression",
     imageUrl:
       "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Psychiatric evaluation",
-      "Medication management",
-      "Therapy coordination",
-      "Relapse prevention planning",
-    ],
+    highlights: ["Psychiatric evaluation", "Medication management", "Therapy coordination", "Relapse prevention planning"],
     conditionsTreated: ["Persistent sadness", "Low motivation", "Sleep disruption", "Loss of interest"],
   },
   {
@@ -234,12 +140,7 @@ export const services: ServiceRecord[] = [
     icon: "Bipolar",
     imageUrl:
       "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Mood monitoring",
-      "Medication optimization",
-      "Family education",
-      "Long-term follow-up",
-    ],
+    highlights: ["Mood monitoring", "Medication optimization", "Family education", "Long-term follow-up"],
     conditionsTreated: ["Bipolar I", "Bipolar II", "Hypomania", "Mania"],
   },
   {
@@ -252,12 +153,7 @@ export const services: ServiceRecord[] = [
     icon: "Anxiety",
     imageUrl:
       "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Anxiety assessment",
-      "CBT-informed treatment planning",
-      "Medication support",
-      "Panic management strategies",
-    ],
+    highlights: ["Anxiety assessment", "CBT-informed treatment planning", "Medication support", "Panic management strategies"],
     conditionsTreated: ["Generalized anxiety", "Social phobia", "Panic disorder", "Phobias"],
   },
   {
@@ -270,12 +166,7 @@ export const services: ServiceRecord[] = [
     icon: "PTSD",
     imageUrl:
       "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Trauma-informed evaluations",
-      "Safety-first treatment approach",
-      "Medication management",
-      "Therapy referral support",
-    ],
+    highlights: ["Trauma-informed evaluations", "Safety-first treatment approach", "Medication management", "Therapy referral support"],
     conditionsTreated: ["PTSD", "Acute stress", "Trauma-related symptoms"],
   },
   {
@@ -288,12 +179,7 @@ export const services: ServiceRecord[] = [
     icon: "Psychosis",
     imageUrl:
       "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Diagnostic clarity",
-      "Ongoing medication management",
-      "Care coordination",
-      "Supportive family communication",
-    ],
+    highlights: ["Diagnostic clarity", "Ongoing medication management", "Care coordination", "Supportive family communication"],
     conditionsTreated: ["Schizophrenia", "Psychosis", "Schizoaffective disorder"],
   },
   {
@@ -306,12 +192,7 @@ export const services: ServiceRecord[] = [
     icon: "Recovery",
     imageUrl:
       "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Recovery-focused planning",
-      "Medication support",
-      "Relapse prevention",
-      "Integrated treatment referrals",
-    ],
+    highlights: ["Recovery-focused planning", "Medication support", "Relapse prevention", "Integrated treatment referrals"],
     conditionsTreated: ["Alcohol use disorder", "Opioid use disorder", "Substance misuse"],
   },
   {
@@ -324,12 +205,7 @@ export const services: ServiceRecord[] = [
     icon: "OCD",
     imageUrl:
       "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?auto=format&fit=crop&w=1200&q=80",
-    highlights: [
-      "Thoughtful assessment",
-      "Medication management",
-      "Therapy collaboration",
-      "Symptom monitoring",
-    ],
+    highlights: ["Thoughtful assessment", "Medication management", "Therapy collaboration", "Symptom monitoring"],
     conditionsTreated: ["Obsessions", "Compulsions", "Intrusive thoughts"],
   },
 ];
@@ -355,16 +231,7 @@ export const locations: LocationRecord[] = [
       { day: "Saturday", opens: "09:00", closes: "14:00" },
       { day: "Sunday", opens: "Closed", closes: "Closed" },
     ],
-    services: [
-      "ADHD",
-      "Major Depression",
-      "Bipolar Disorder",
-      "Anxiety Disorders",
-      "PTSD",
-      "Schizophrenia",
-      "Substance Abuse",
-      "OCD",
-    ],
+    services: ["ADHD", "Major Depression", "Bipolar Disorder", "Anxiety Disorders", "PTSD", "Schizophrenia", "Substance Abuse", "OCD"],
   },
 ];
 
@@ -375,39 +242,19 @@ export const testimonials: TestimonialRecord[] = [
     patientLocation: "North Park",
     rating: 5,
     quote:
-      "For the first time in years, I left a psychiatry appointment feeling like someone actually heard me. My teen looks forward to seeing Dr. Rivera, which I never thought I'd say.",
+      "For the first time in years, I left a psychiatry appointment feeling like someone actually heard me. My teen looks forward to seeing Dr. Bolanle, which I never thought I'd say.",
     serviceName: "Child & Adolescent Psychiatry",
-    providerName: "Dr. Sofia Rivera",
+    providerName: "Dr. Bolanle Olajuyigbe",
   },
   {
     id: "t_2",
     patientName: "Owen Whittaker",
-    patientLocation: "Riverside",
-    rating: 5,
-    quote:
-      "I came in scared about starting medication. Dr. Okafor walked me through every option, every trade-off, and never rushed me. Calm, kind, and incredibly competent.",
-    serviceName: "Adult Psychiatry",
-    providerName: "Dr. Marcus Okafor",
-  },
-  {
-    id: "t_3",
-    patientName: "Priya Shah",
-    patientLocation: "Eastgate",
-    rating: 5,
-    quote:
-      "Therapy and medication management under one roof, and they actually talk to each other. It feels like my care is finally a team effort, not a stack of disconnected appointments.",
-    serviceName: "Medication Management",
-    providerName: "Dr. David Park",
-  },
-  {
-    id: "t_4",
-    patientName: "James Holloway",
     patientLocation: "North Park",
     rating: 5,
     quote:
-      "After years of half-hearted ADHD care, this was the first place that took the time to really evaluate me. The plan they built actually fits my life.",
-    serviceName: "ADHD Evaluation & Treatment",
-    providerName: "Dr. Amelia Chen",
+      "I came in scared about starting medication. Dr. Olayemi walked me through every option, every trade-off, and never rushed me. Calm, kind, and incredibly competent.",
+    serviceName: "Adult Psychiatry",
+    providerName: "Dr. Olayemi Olajuyigbe",
   },
 ];
 
@@ -429,7 +276,7 @@ export const insights: InsightRecord[] = [
     readMinutes: 4,
     coverImageUrl:
       "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?auto=format&fit=crop&w=1200&q=80",
-    authorName: "Dr. Amelia Chen",
+    authorName: "Dr. Olayemi Olajuyigbe",
     publishedAt: "2026-04-12T10:00:00.000Z",
   },
 ];
