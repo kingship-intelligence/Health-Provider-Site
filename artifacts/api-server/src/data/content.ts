@@ -73,8 +73,7 @@ export const providers: ProviderRecord[] = [
     credentials: "MD",
     specialty: "Adult Psychiatry",
     bio: "Dr. Olayemi Olajuyigbe provides careful, evidence-based psychiatric care for adults managing mood, anxiety, and attention concerns. She is known for clear communication, thoughtful medication decisions, and an unhurried visit style.",
-    photoUrl:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
+    photoUrl: "@assets/Dr_Olayemi_Olajuyigbe_1777996052596.png",
     yearsExperience: 14,
     languages: ["English"],
     education: ["MD, University of Ibadan", "Psychiatry Residency, University of Lagos"],
@@ -90,8 +89,7 @@ export const providers: ProviderRecord[] = [
     credentials: "MD",
     specialty: "Child & Adolescent Psychiatry",
     bio: "Dr. Bolanle Olajuyigbe supports children, teens, and families with compassionate psychiatric care. She emphasizes collaboration, practical treatment planning, and helping families feel informed at every step.",
-    photoUrl:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80",
+    photoUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80",
     yearsExperience: 11,
     languages: ["English"],
     education: ["MD, University of Lagos", "Child & Adolescent Psychiatry Fellowship"],
