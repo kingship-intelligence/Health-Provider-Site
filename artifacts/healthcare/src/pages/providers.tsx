@@ -3,6 +3,7 @@ import { useListProviders, useListLocations } from "@workspace/api-client-react"
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ProviderAvatar } from "@/components/provider-avatar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { motion } from "framer-motion";
 import React from "react";
@@ -80,7 +81,7 @@ export default function Providers() {
                 <Link href={`/providers/${provider.id}`}>
                   <Card className="h-full border-none shadow-sm hover:shadow-md transition-all rounded-2xl overflow-hidden group cursor-pointer">
                     <div className="aspect-[3/4] overflow-hidden bg-muted relative">
-                      {provider.photoUrl ? <img src={provider.photoUrl} alt={provider.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> : null}
+                      <ProviderAvatar photoUrl={provider.photoUrl} name={provider.name} className="group-hover:scale-105 transition-transform duration-500" />
                       {provider.acceptingNewPatients && (
                         <div className="absolute top-3 right-3">
                           <Badge className="bg-primary text-primary-foreground hover:bg-primary shadow-sm border-none backdrop-blur-md">Accepting Patients</Badge>

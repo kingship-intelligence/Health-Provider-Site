@@ -13,6 +13,17 @@ export type ProviderRecord = {
   rating: number;
   reviewCount: number;
   featured?: boolean;
+  topSpecialties?: string[];
+  expertise?: string[];
+  clientFocus?: {
+    ages: string[];
+    participants: string[];
+    ethnicity?: string[];
+  };
+  treatmentApproach?: {
+    therapyTypes: string[];
+    other: string[];
+  };
 };
 
 export type ServiceRecord = {
@@ -62,6 +73,7 @@ export type InsightRecord = {
   coverImageUrl: string;
   authorName: string;
   publishedAt: string;
+  sourceUrl?: string;
 };
 
 const CLINIC_ID = "loc_meridian";
@@ -70,29 +82,55 @@ export const providers: ProviderRecord[] = [
   {
     id: "p_olayemi_olajuyigbe",
     name: "Dr. Olayemi Olajuyigbe",
-    credentials: "MD",
-    specialty: "Adult Psychiatry",
-    bio: "Dr. Olayemi Olajuyigbe provides careful, evidence-based psychiatric care for adults managing mood, anxiety, and attention concerns. She is known for clear communication, thoughtful medication decisions, and an unhurried visit style.",
+    credentials: "DNP, PMHNP-BC, CRNP",
+    specialty: "Psychiatric Nurse Practitioner",
+    bio: "Dr. Olayemi Olajuyigbe is a Board-Certified Psychiatric Nurse Practitioner with over 14 years of experience in health care services in the Baltimore/Washington DC area. A self-motivated outcome-oriented provider giving the best human support to life utilizing psychiatric skills with strong clinical experience through evidence-based practice. Providing medication management to children and adults. His focus is on restoring wellness to individuals and families with different psychiatric disorders through customized and holistic patient-centered care.",
     photoUrl: "/images/dr-olayemi.png",
-    yearsExperience: 14,
-    languages: ["English"],
-    education: ["MD, University of Ibadan", "Psychiatry Residency, University of Lagos"],
+    yearsExperience: 8,
+    languages: ["English", "Yoruba"],
+    education: ["DNP, University of South Alabama, 2020", "License: Maryland Board of Nursing — R211046", "Certificate: American Nurses Credentialing Center"],
     acceptingNewPatients: true,
     locationIds: [CLINIC_ID],
     rating: 4.9,
     reviewCount: 184,
     featured: true,
+    topSpecialties: ["Bipolar Disorder", "Medication Management", "ADHD"],
+    expertise: [
+      "Addiction", "Alcohol Use", "Anger Management", "Antisocial Personality", "Anxiety",
+      "Autism", "Behavioral Issues", "Borderline Personality (BPD)", "Chronic Impulsivity",
+      "Depression", "Dissociative Disorders (DID)", "Drug Abuse", "Dual Diagnosis",
+      "Education and Learning Disabilities", "Emotional Disturbance", "Geriatric and Seniors",
+      "Grief", "Impulse Control Disorders", "Mood Disorders", "Narcissistic Personality (NPD)",
+      "Obsessive-Compulsive (OCD)", "Oppositional Defiance (ODD)", "Personality Disorders",
+      "Psychosis", "Schizophrenia", "Schizoaffective Disorder", "Self Esteem",
+      "Sleep or Insomnia", "Stress", "Substance Use", "Suicidal Ideation", "Teen Violence",
+      "Testing and Evaluation", "Trauma and PTSD", "Veterans", "Weight Loss",
+    ],
+    clientFocus: {
+      ages: ["Children (6 to 10)", "Preteen", "Teen", "Adults", "Elders (65+)"],
+      participants: ["Individuals", "Couples", "Family"],
+      ethnicity: ["Black and African American"],
+    },
+    treatmentApproach: {
+      therapyTypes: ["Cognitive Behavioral (CBT)", "Emotionally Focused", "Interpersonal", "Person-Centered"],
+      other: ["Intervention", "Medication Management", "Suboxone Clinic"],
+    },
   },
   {
     id: "p_bolanle_olajuyigbe",
     name: "Dr. Bolanle Olajuyigbe",
-    credentials: "MD",
-    specialty: "Child & Adolescent Psychiatry",
-    bio: "Dr. Bolanle Olajuyigbe supports children, teens, and families with compassionate psychiatric care. She emphasizes collaboration, practical treatment planning, and helping families feel informed at every step.",
-    photoUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80",
+    credentials: "DNP, PMHNP-BC",
+    specialty: "Psychiatric Nurse Practitioner",
+    bio: "Bolanle Olajuyigbe is a dedicated nursing educator and practitioner with a Doctor of Nursing Practice and specialized certifications in Psychiatry Mental Health, currently serving as Course Coordinator for NURS 131-C at UDC, with a focus on qualitative research on coping with stress in nursing school. Additionally, Dr. Olajuyigbe has extensive clinical experience at organizations such as Medstar Washington Hospital Center and Wexford Correctional Facility, and contributes to nursing education and community health initiatives in Washington, D.C.",
+    photoUrl: "",
     yearsExperience: 11,
     languages: ["English"],
-    education: ["MD, University of Lagos", "Child & Adolescent Psychiatry Fellowship"],
+    education: [
+      "Post Masters Certificate in Psychiatry Mental Health (PMHNP-BC), Magna Cum Laude, Walden University",
+      "Doctor of Nursing Practice, Walden University",
+      "Master of Science in Nursing: Nursing Education, Summa Cum Laude, Walden University",
+      "Bachelor of Science in Nursing: Nursing Education, University of Ibadan, Nigeria",
+    ],
     acceptingNewPatients: true,
     locationIds: [CLINIC_ID],
     rating: 5.0,
@@ -109,7 +147,7 @@ export const services: ServiceRecord[] = [
     tagline: "Comprehensive assessment and treatment for Attention-Deficit/Hyperactivity Disorder",
     description:
       "We provide comprehensive psychiatric assessment and treatment for ADHD with careful attention to symptoms, functioning, and your goals.",
-    icon: "ADHD",
+    icon: "🧠",
     imageUrl:
       "https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=80",
     highlights: ["Detailed diagnostic evaluation", "Medication management when appropriate", "Adult and adolescent care", "Coaching and behavioral support"],
@@ -122,7 +160,7 @@ export const services: ServiceRecord[] = [
     tagline: "Evidence-based treatments for depressive disorders",
     description:
       "Evidence-based treatment for depressive disorders, including psychotherapy, medication management, and ongoing support.",
-    icon: "Depression",
+    icon: "🌧️",
     imageUrl:
       "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1200&q=80",
     highlights: ["Psychiatric evaluation", "Medication management", "Therapy coordination", "Relapse prevention planning"],
@@ -135,7 +173,7 @@ export const services: ServiceRecord[] = [
     tagline: "Specialized care for mood stabilization and management",
     description:
       "Specialized care focused on mood stabilization, diagnosis, and ongoing management for bipolar disorders.",
-    icon: "Bipolar",
+    icon: "⚖️",
     imageUrl:
       "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=1200&q=80",
     highlights: ["Mood monitoring", "Medication optimization", "Family education", "Long-term follow-up"],
@@ -148,7 +186,7 @@ export const services: ServiceRecord[] = [
     tagline: "Treatment for generalized anxiety, social phobia, and panic disorders",
     description:
       "Treatment for generalized anxiety, social phobia, and panic disorders with practical, evidence-based care.",
-    icon: "Anxiety",
+    icon: "💭",
     imageUrl:
       "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
     highlights: ["Anxiety assessment", "CBT-informed treatment planning", "Medication support", "Panic management strategies"],
@@ -161,7 +199,7 @@ export const services: ServiceRecord[] = [
     tagline: "Trauma-informed care for Post-Traumatic Stress Disorder",
     description:
       "Trauma-informed psychiatric care for Post-Traumatic Stress Disorder with sensitivity, structure, and support.",
-    icon: "PTSD",
+    icon: "🛡️",
     imageUrl:
       "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
     highlights: ["Trauma-informed evaluations", "Safety-first treatment approach", "Medication management", "Therapy referral support"],
@@ -174,7 +212,7 @@ export const services: ServiceRecord[] = [
     tagline: "Comprehensive treatment plans for psychotic disorders",
     description:
       "Comprehensive treatment plans for psychotic disorders, centered on stabilization, continuity, and family support.",
-    icon: "Psychosis",
+    icon: "🔬",
     imageUrl:
       "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=80",
     highlights: ["Diagnostic clarity", "Ongoing medication management", "Care coordination", "Supportive family communication"],
@@ -187,7 +225,7 @@ export const services: ServiceRecord[] = [
     tagline: "Support and treatment for substance use disorders",
     description:
       "Support and treatment for substance use disorders with a compassionate, nonjudgmental approach.",
-    icon: "Recovery",
+    icon: "🌱",
     imageUrl:
       "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?auto=format&fit=crop&w=1200&q=80",
     highlights: ["Recovery-focused planning", "Medication support", "Relapse prevention", "Integrated treatment referrals"],
@@ -200,7 +238,7 @@ export const services: ServiceRecord[] = [
     tagline: "Specialized approaches for Obsessive-Compulsive Disorder",
     description:
       "Specialized psychiatric approaches for Obsessive-Compulsive Disorder, including careful diagnosis and coordinated treatment.",
-    icon: "OCD",
+    icon: "🔄",
     imageUrl:
       "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?auto=format&fit=crop&w=1200&q=80",
     highlights: ["Thoughtful assessment", "Medication management", "Therapy collaboration", "Symptom monitoring"],
@@ -212,12 +250,12 @@ export const locations: LocationRecord[] = [
   {
     id: CLINIC_ID,
     name: "Restoration LLC",
-    addressLine1: "412 Linden Avenue",
-    addressLine2: "Suite 200",
-    city: "North Park",
-    state: "OR",
-    postalCode: "97214",
-    phone: "(503) 555-0148",
+    addressLine1: "2 E Rolling Crossroads",
+    addressLine2: "Suite #207",
+    city: "Catonsville",
+    state: "MD",
+    postalCode: "21228",
+    phone: "(443) 851-9085",
     imageUrl:
       "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80",
     hours: [
@@ -256,28 +294,7 @@ export const testimonials: TestimonialRecord[] = [
   },
 ];
 
-const insightBody = (paragraphs: string[]) => paragraphs.join("\n\n");
-
-export const insights: InsightRecord[] = [
-  {
-    id: "i_sleep_health",
-    slug: "the-quiet-medicine-of-sleep",
-    title: "The Quiet Medicine of Sleep",
-    excerpt:
-      "If we could prescribe one thing to almost every patient who walks through our doors, it would not be a pill — it would be a full night of sleep.",
-    body: insightBody([
-      "Sleep is the most underrated intervention in mental health. We tend to look for the next supplement, the next routine, the next medication — when our minds are quietly asking us for something far simpler.",
-      "Adults need seven to nine hours of consistent sleep to support mood regulation, attention, and emotional resilience. Even a single short night can change how the brain responds to stress and reward.",
-      "If you are struggling, the smallest changes often help most: keep a steady wake time, dim the lights an hour before bed, and treat your bedroom like the quietest room in the house. If sleep does not improve, talk to your psychiatrist — there may be more going on, and we can help.",
-    ]),
-    category: "Wellness",
-    readMinutes: 4,
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?auto=format&fit=crop&w=1200&q=80",
-    authorName: "Dr. Olayemi Olajuyigbe",
-    publishedAt: "2026-04-12T10:00:00.000Z",
-  },
-];
+export const insights: InsightRecord[] = [];
 
 export const stats = {
   providerCount: providers.length,

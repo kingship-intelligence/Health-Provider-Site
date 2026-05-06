@@ -14,9 +14,10 @@ export default function InsightDetail() {
     return <div className="container mx-auto px-4 py-24 min-h-screen">Article not found</div>;
   }
 
+  const isHtml = insight.body.includes("<");
+
   return (
     <div className="min-h-screen bg-background pb-24">
-      {/* Hero Image */}
       <div className="h-[50vh] w-full relative bg-muted">
         {insight.coverImageUrl && (
           <img src={insight.coverImageUrl} alt={insight.title} className="w-full h-full object-cover" />
@@ -53,21 +54,48 @@ export default function InsightDetail() {
             </div>
           </div>
           
-          <div className="prose prose-lg prose-headings:font-serif prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary max-w-none">
-            {/* Minimal markdown rendering handling newlines */}
-            {insight.body.split('\n\n').map((paragraph, i) => {
-              if (paragraph.startsWith('# ')) {
-                return <h1 key={i}>{paragraph.substring(2)}</h1>;
-              }
-              if (paragraph.startsWith('## ')) {
-                return <h2 key={i} className="mt-8 mb-4">{paragraph.substring(3)}</h2>;
-              }
-              if (paragraph.startsWith('### ')) {
-                return <h3 key={i} className="mt-6 mb-3">{paragraph.substring(4)}</h3>;
-              }
-              return <p key={i} className="mb-6 leading-relaxed">{paragraph}</p>;
-            })}
-          </div>
+          {isHtml ? (
+            <div
+              className="prose prose-lg prose-headings:font-serif prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-li:text-muted-foreground prose-strong:text-foreground max-w-none
+                [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:mt-6 [&_h3]:mb-3
+                [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-4 [&_ul]:space-y-2
+                [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-4 [&_ol]:space-y-2
+                [&_p]:mb-4 [&_p]:leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: insight.body }}
+            />
+          ) : (
+            <div className="prose prose-lg prose-headings:font-serif prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary max-w-none">
+              {insight.body.split('\n\n').map((paragraph, i) => {
+                if (paragraph.startsWith('# ')) {
+                  return <h1 key={i}>{paragraph.substring(2)}</h1>;
+                }
+                if (paragraph.startsWith('## ')) {
+                  return <h2 key={i} className="mt-8 mb-4">{paragraph.substring(3)}</h2>;
+                }
+                if (paragraph.startsWith('### ')) {
+                  return <h3 key={i} className="mt-6 mb-3">{paragraph.substring(4)}</h3>;
+                }
+                return <p key={i} className="mb-6 leading-relaxed">{paragraph}</p>;
+              })}
+            </div>
+          )}
+
+          {(insight as any).sourceUrl && (
+            <div className="mt-10 pt-8 border-t">
+              <p className="text-sm text-muted-foreground">
+                Source:{" "}
+                <a
+                  href={(insight as any).sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  HealthCare.gov
+                </a>
+                {" "}&mdash; An official website of the U.S. Department of Health &amp; Human Services.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>

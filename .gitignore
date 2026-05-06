@@ -7,7 +7,9 @@ out-tsc
 *.tsbuildinfo
 .expo
 .expo-shared
-
+# pnpm local store (if store-dir points inside the repo — avoid huge unintended commits)
+.pnpm-store/
+**/.pnpm-store/
 # dependencies
 node_modules
 

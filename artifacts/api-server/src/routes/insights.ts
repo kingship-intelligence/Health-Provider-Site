@@ -5,9 +5,135 @@ import {
   GetInsightParams,
   GetInsightResponse,
 } from "@workspace/api-zod";
-import { insights } from "../data/content";
+import type { InsightRecord } from "../data/content";
 
 const router: IRouter = Router();
+
+const HEALTHCARE_GOV = "https://www.healthcare.gov";
+
+const CURATED_ARTICLES: { url: string; category: string; coverImageUrl: string }[] = [
+  {
+    url: "/coverage/mental-health-substance-abuse-coverage",
+    category: "Mental Health",
+    coverImageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    url: "/coverage/preventive-care-benefits",
+    category: "Wellness",
+    coverImageUrl: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    url: "/coverage/what-marketplace-plans-cover",
+    category: "Insurance",
+    coverImageUrl: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    url: "/coverage/pre-existing-conditions",
+    category: "Insurance",
+    coverImageUrl: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    url: "/using-marketplace-coverage/prescription-medications",
+    category: "Medication",
+    coverImageUrl: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    url: "/why-coverage-is-important/coverage-protects-you",
+    category: "Insurance",
+    coverImageUrl: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    url: "/preventive-care-adults",
+    category: "Wellness",
+    coverImageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    url: "/preventive-care-children",
+    category: "Wellness",
+    coverImageUrl: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    url: "/using-marketplace-coverage/improving-your-health",
+    category: "Wellness",
+    coverImageUrl: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+
+function stripHtml(html: string): string {
+  return html
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&rsquo;/g, "\u2019")
+    .replace(/&ldquo;/g, "\u201C")
+    .replace(/&rdquo;/g, "\u201D")
+    .replace(/&mdash;/g, "\u2014")
+    .replace(/&ndash;/g, "\u2013")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function urlToSlug(url: string): string {
+  return url.replace(/^\//, "").replace(/\//g, "-");
+}
+
+function estimateReadMinutes(text: string): number {
+  const words = text.split(/\s+/).length;
+  return Math.max(2, Math.ceil(words / 200));
+}
+
+let cachedInsights: InsightRecord[] | null = null;
+let cacheTime = 0;
+const CACHE_TTL = 1000 * 60 * 60; // 1 hour
+
+async function fetchInsights(): Promise<InsightRecord[]> {
+  const now = Date.now();
+  if (cachedInsights && now - cacheTime < CACHE_TTL) {
+    return cachedInsights;
+  }
+
+  const results: InsightRecord[] = [];
+
+  const settled = await Promise.allSettled(
+    CURATED_ARTICLES.map(async (article) => {
+      const res = await fetch(`${HEALTHCARE_GOV}${article.url}.json`);
+      if (!res.ok) return null;
+      const data = await res.json();
+      const plainText = stripHtml(data.content || "");
+      const excerpt = plainText.slice(0, 200).replace(/\s\S*$/, "") + "...";
+
+      return {
+        id: `hcg_${urlToSlug(article.url)}`,
+        slug: urlToSlug(article.url),
+        title: (data.title || "").trim(),
+        excerpt,
+        body: data.content || "",
+        category: article.category,
+        readMinutes: estimateReadMinutes(plainText),
+        coverImageUrl: article.coverImageUrl,
+        authorName: "HealthCare.gov",
+        publishedAt: data.date
+          ? new Date(data.date).toISOString()
+          : new Date().toISOString(),
+        sourceUrl: `${HEALTHCARE_GOV}${article.url}`,
+      } satisfies InsightRecord;
+    }),
+  );
+
+  for (const r of settled) {
+    if (r.status === "fulfilled" && r.value) {
+      results.push(r.value);
+    }
+  }
+
+  cachedInsights = results;
+  cacheTime = now;
+  return results;
+}
 
 router.get("/insights", async (req, res): Promise<void> => {
   const parsed = ListInsightsQueryParams.safeParse(req.query);
@@ -17,7 +143,7 @@ router.get("/insights", async (req, res): Promise<void> => {
   }
 
   const { category } = parsed.data;
-  let result = insights;
+  let result = await fetchInsights();
   if (category) {
     const needle = category.toLowerCase();
     result = result.filter((i) => i.category.toLowerCase() === needle);
@@ -37,7 +163,8 @@ router.get("/insights/:slug", async (req, res): Promise<void> => {
     return;
   }
 
-  const insight = insights.find((i) => i.slug === params.data.slug);
+  const allInsights = await fetchInsights();
+  const insight = allInsights.find((i) => i.slug === params.data.slug);
   if (!insight) {
     res.status(404).json({ error: "Insight not found" });
     return;

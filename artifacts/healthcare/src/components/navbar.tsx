@@ -3,8 +3,9 @@ import { Link } from "wouter";
 const links = [
   { href: "/providers", label: "Providers" },
   { href: "/services", label: "Services" },
-  { href: "/locations", label: "Locations" },
+
   { href: "/insights", label: "Insights" },
+  { href: "/insurance", label: "Insurance" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

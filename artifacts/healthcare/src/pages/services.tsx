@@ -41,7 +41,9 @@ export default function Services() {
                   <Card className="h-full hover:shadow-lg transition-all cursor-pointer border hover:border-primary/20 bg-card group overflow-hidden rounded-3xl">
                     <CardContent className="p-8">
                       <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform group-hover:bg-primary group-hover:text-primary-foreground">
-                        <span className="text-2xl">{service.icon || service.name[0]}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+                          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
                       </div>
                       <h3 className="text-2xl font-serif mb-3">{service.name}</h3>
                       <p className="text-muted-foreground leading-relaxed mb-6">{service.tagline}</p>

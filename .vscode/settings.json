@@ -1,0 +1,8 @@
+{
+  "files.watcherExclude": {
+    "**/.pnpm-store/**": true
+  },
+  "search.exclude": {
+    "**/.pnpm-store/**": true
+  }
+}

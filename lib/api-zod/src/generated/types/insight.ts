@@ -17,4 +17,5 @@ export interface Insight {
   coverImageUrl: string;
   authorName: string;
   publishedAt: Date;
+  sourceUrl?: string;
 }

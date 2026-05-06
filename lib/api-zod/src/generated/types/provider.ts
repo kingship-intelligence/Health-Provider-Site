@@ -20,4 +20,15 @@ export interface Provider {
   locationIds: string[];
   rating: number;
   reviewCount: number;
+  topSpecialties?: string[];
+  expertise?: string[];
+  clientFocus?: {
+    ages: string[];
+    participants: string[];
+    ethnicity?: string[];
+  };
+  treatmentApproach?: {
+    therapyTypes: string[];
+    other: string[];
+  };
 }

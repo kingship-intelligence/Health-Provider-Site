@@ -3,6 +3,7 @@ import { useGetService, useListProviders } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { ProviderAvatar } from "@/components/provider-avatar";
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -22,7 +23,9 @@ export default function ServiceDetail() {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="flex-1 max-w-2xl">
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
-                <span className="text-3xl">{service.icon}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
               </div>
               <h1 className="text-4xl md:text-5xl font-serif mb-4">{service.name}</h1>
               <p className="text-2xl text-muted-foreground font-serif italic mb-6">{service.tagline}</p>
@@ -78,7 +81,7 @@ export default function ServiceDetail() {
                       <Card className="hover:shadow-md transition-shadow cursor-pointer border-none rounded-2xl">
                         <CardContent className="p-4 flex items-center gap-4">
                           <div className="w-16 h-16 rounded-full overflow-hidden bg-muted shrink-0">
-                            <img src={provider.photoUrl} alt={provider.name} className="w-full h-full object-cover" />
+                            <ProviderAvatar photoUrl={provider.photoUrl} name={provider.name} />
                           </div>
                           <div>
                             <h3 className="font-medium">{provider.name}, {provider.credentials}</h3>

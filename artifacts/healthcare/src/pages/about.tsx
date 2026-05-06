@@ -2,6 +2,7 @@ import { useGetStatsOverview } from "@workspace/api-client-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { formatFixed, formatNumber, toSafeNumber } from "@/lib/format-number";
 
 const values = [
   ["Respect", "Treating every patient with dignity and honoring their individual journey"],
@@ -16,6 +17,12 @@ const values = [
 
 export default function About() {
   const { data: stats } = useGetStatsOverview();
+  const statsOverview = {
+    patientsServed: formatNumber(stats?.patientsServed),
+    providerCount: toSafeNumber(stats?.providerCount),
+    yearsInCommunity: toSafeNumber(stats?.yearsInCommunity),
+    averageRating: formatFixed(stats?.averageRating, 1),
+  };
 
   return (
     <div className="min-h-screen bg-background pb-24">
@@ -57,31 +64,29 @@ export default function About() {
           </div>
         </div>
       </section>
-      {stats && (
-        <section className="py-24 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-serif text-center mb-16">Our Impact</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <p className="text-5xl font-serif mb-3">{stats.patientsServed.toLocaleString()}+</p>
-                <p className="text-primary-foreground/80 font-medium tracking-wide uppercase text-sm">Patients Served</p>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-                <p className="text-5xl font-serif mb-3">{stats.providerCount}</p>
-                <p className="text-primary-foreground/80 font-medium tracking-wide uppercase text-sm">Expert Providers</p>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-                <p className="text-5xl font-serif mb-3">{stats.yearsInCommunity}</p>
-                <p className="text-primary-foreground/80 font-medium tracking-wide uppercase text-sm">Years in Community</p>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-                <p className="text-5xl font-serif mb-3">{stats.averageRating.toFixed(1)}/5</p>
-                <p className="text-primary-foreground/80 font-medium tracking-wide uppercase text-sm">Average Rating</p>
-              </motion.div>
-            </div>
+      <section className="py-24 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-serif text-center mb-16">Our Impact</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <p className="text-5xl font-serif mb-3">{statsOverview.patientsServed}+</p>
+              <p className="text-primary-foreground/80 font-medium tracking-wide uppercase text-sm">Patients Served</p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+              <p className="text-5xl font-serif mb-3">{statsOverview.providerCount}</p>
+              <p className="text-primary-foreground/80 font-medium tracking-wide uppercase text-sm">Expert Providers</p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
+              <p className="text-5xl font-serif mb-3">{statsOverview.yearsInCommunity}</p>
+              <p className="text-primary-foreground/80 font-medium tracking-wide uppercase text-sm">Years in Community</p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+              <p className="text-5xl font-serif mb-3">{statsOverview.averageRating}/5</p>
+              <p className="text-primary-foreground/80 font-medium tracking-wide uppercase text-sm">Average Rating</p>
+            </motion.div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
       <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">

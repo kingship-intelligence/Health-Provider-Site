@@ -3,8 +3,9 @@ import { Link } from "wouter";
 const quickLinks = [
   { href: "/providers", label: "Providers" },
   { href: "/services", label: "Services" },
-  { href: "/locations", label: "Locations" },
+
   { href: "/insights", label: "Insights" },
+  { href: "/insurance", label: "Insurance" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -55,19 +56,23 @@ export default function Footer() {
           <div>
             <h4 className="font-medium mb-4">Clinic</h4>
             <p className="text-sm text-muted-foreground">
-              412 Linden Avenue
+              2 E Rolling Crossroads
               <br />
-              Suite 200
+              Suite #207
               <br />
-              North Park, OR 97214
+              Catonsville, MD 21228
             </p>
           </div>
           <div>
             <h4 className="font-medium mb-4">Contact</h4>
             <p className="text-sm text-muted-foreground">
-              (503) 555-0148
+              (443) 851-9085
               <br />
-              hello@restorationllc.com
+              (443) 833-3065
+              <br /><br />
+              info@restorationllc.net
+              <br />
+              restorationllc.bhs@gmail.com
             </p>
           </div>
         </div>

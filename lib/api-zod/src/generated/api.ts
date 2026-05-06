@@ -82,6 +82,17 @@ export const GetProviderResponse = zod.object({
   locationIds: zod.array(zod.string()),
   rating: zod.number(),
   reviewCount: zod.number(),
+  topSpecialties: zod.array(zod.string()).optional(),
+  expertise: zod.array(zod.string()).optional(),
+  clientFocus: zod.object({
+    ages: zod.array(zod.string()),
+    participants: zod.array(zod.string()),
+    ethnicity: zod.array(zod.string()).optional(),
+  }).optional(),
+  treatmentApproach: zod.object({
+    therapyTypes: zod.array(zod.string()),
+    other: zod.array(zod.string()),
+  }).optional(),
 });
 
 /**
@@ -237,6 +248,7 @@ export const ListInsightsResponseItem = zod.object({
   coverImageUrl: zod.string(),
   authorName: zod.string(),
   publishedAt: zod.coerce.date(),
+  sourceUrl: zod.string().optional(),
 });
 export const ListInsightsResponse = zod.array(ListInsightsResponseItem);
 
@@ -258,6 +270,7 @@ export const GetInsightResponse = zod.object({
   coverImageUrl: zod.string(),
   authorName: zod.string(),
   publishedAt: zod.coerce.date(),
+  sourceUrl: zod.string().optional(),
 });
 
 /**

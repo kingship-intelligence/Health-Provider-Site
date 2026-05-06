@@ -11,6 +11,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { ProviderAvatar } from "@/components/provider-avatar";
+import { formatFixed, formatNumber, toSafeNumber } from "@/lib/format-number";
 
 export default function Home() {
   const { data: stats } = useGetStatsOverview();
@@ -18,6 +20,12 @@ export default function Home() {
   const { data: testimonials } = useListTestimonials();
   const { data: insights } = useListInsights();
   const { data: featuredProviders } = useListFeaturedProviders();
+  const statsOverview = {
+    patientsServed: formatNumber(stats?.patientsServed),
+    providerCount: toSafeNumber(stats?.providerCount),
+    yearsInCommunity: toSafeNumber(stats?.yearsInCommunity),
+    averageRating: formatFixed(stats?.averageRating, 1),
+  };
 
   return (
     <div className="flex flex-col">
@@ -36,24 +44,28 @@ export default function Home() {
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-wrap gap-4">
               <Link href="/appointments"><Button size="lg" className="text-base h-14 px-8 rounded-full">Request Appointment</Button></Link>
-              <Link href="/locations"><Button size="lg" variant="outline" className="text-base h-14 px-8 rounded-full bg-background/50 backdrop-blur">Visit Our Clinic</Button></Link>
+              <Link href="/contact"><Button size="lg" variant="outline" className="text-base h-14 px-8 rounded-full bg-background/50 backdrop-blur">Contact Us</Button></Link>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {stats && (
-        <section className="py-16 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div><p className="text-4xl font-serif mb-2">{stats.patientsServed.toLocaleString()}+</p><p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Patients Served</p></div>
-              <div><p className="text-4xl font-serif mb-2">{stats.providerCount}</p><p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Psychiatrists & Therapists</p></div>
-              <div><p className="text-4xl font-serif mb-2">{stats.yearsInCommunity}</p><p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Years in Community</p></div>
-              <div><p className="text-4xl font-serif mb-2">{stats.averageRating.toFixed(1)}/5</p><p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Average Rating</p></div>
+      <section className="py-16 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <p className="text-4xl font-serif mb-2">{statsOverview.patientsServed}+</p>
+              <p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Patients Served</p>
+            </div>
+            <div><p className="text-4xl font-serif mb-2">{statsOverview.providerCount}</p><p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Psychiatrists & Therapists</p></div>
+            <div><p className="text-4xl font-serif mb-2">{statsOverview.yearsInCommunity}</p><p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Years in Community</p></div>
+            <div>
+              <p className="text-4xl font-serif mb-2">{statsOverview.averageRating}/5</p>
+              <p className="text-primary-foreground/80 text-sm uppercase tracking-wider font-medium">Average Rating</p>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       <section className="py-24">
         <div className="container mx-auto px-4">
@@ -61,16 +73,15 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-serif mb-4">We Focus On</h2>
             <p className="text-muted-foreground text-lg">We offer comprehensive services designed to keep you healthy, not just treat you when you're sick.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services?.slice(0, 6).map((service, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {services?.map((service, i) => (
               <motion.div key={service.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                 <Link href={`/services/${service.slug}`}>
-                  <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer border-none bg-card group overflow-hidden rounded-2xl"><CardContent className="p-8"><div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><span className="text-2xl">{service.icon || service.name[0]}</span></div><h3 className="text-xl font-medium mb-2">{service.name}</h3><p className="text-muted-foreground">{service.tagline}</p></CardContent></Card>
+                  <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer border-none bg-card group overflow-hidden rounded-2xl"><CardContent className="p-8"><h3 className="text-xl font-medium mb-2">{service.name}</h3><p className="text-muted-foreground">{service.tagline}</p></CardContent></Card>
                 </Link>
               </motion.div>
             ))}
           </div>
-          <div className="text-center mt-12"><Link href="/services"><Button variant="outline" size="lg" className="rounded-full">View All Services</Button></Link></div>
         </div>
       </section>
 
@@ -86,7 +97,7 @@ export default function Home() {
                 <Link href={`/providers/${provider.id}`}>
                   <Card className="h-full border-none shadow-sm hover:shadow-md transition-all rounded-2xl overflow-hidden group cursor-pointer">
                     <div className="aspect-[3/4] overflow-hidden bg-muted relative">
-                      <img src={provider.photoUrl} alt={provider.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <ProviderAvatar photoUrl={provider.photoUrl} name={provider.name} className="group-hover:scale-105 transition-transform duration-500" />
                       {provider.acceptingNewPatients && <div className="absolute top-3 right-3"><Badge className="bg-primary text-primary-foreground hover:bg-primary shadow-sm border-none">Accepting Patients</Badge></div>}
                     </div>
                     <CardContent className="p-5">
@@ -112,6 +123,44 @@ export default function Home() {
                 <div className="flex items-center gap-4"><Avatar><AvatarFallback className="bg-primary/10 text-primary">{t.patientName[0]}</AvatarFallback></Avatar><div><p className="font-medium text-sm">{t.patientName}</p><p className="text-xs text-muted-foreground">{t.serviceName} Patient</p></div></div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-serif mb-4">Insurance We Accept</h2>
+            <p className="text-muted-foreground text-lg">We partner with major insurance companies to ensure you receive the care you need</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {["Aetna", "Cigna", "United Healthcare", "CareFirst BCBS", "Medicare", "Medicaid of Maryland", "Johns Hopkins HealthCare", "Tricare"].map((name) => (
+              <span key={name} className="bg-card border rounded-full px-5 py-2 text-sm font-medium shadow-sm">{name}</span>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link href="/insurance"><Button variant="outline" size="lg" className="rounded-full px-8">View All Accepted Insurance</Button></Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 text-center max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-serif mb-4">New Patient Intake Form</h2>
+          <p className="text-muted-foreground text-lg mb-8">Download and complete our intake form before your first visit to help us prepare for your appointment.</p>
+          <a href="/intake-form.pdf" target="_blank" rel="noreferrer">
+            <Button size="lg" className="rounded-full px-8">Download Intake Form</Button>
+          </a>
+        </div>
+      </section>
+
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 text-center max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-serif mb-8">Work Hours</h2>
+          <div className="space-y-3 text-lg">
+            <p className="flex justify-between max-w-sm mx-auto"><span className="text-muted-foreground">Mon – Fri</span><span className="font-medium">9am – 9pm</span></p>
+            <p className="flex justify-between max-w-sm mx-auto"><span className="text-muted-foreground">Sat</span><span className="font-medium">10am – 4pm</span></p>
+            <p className="flex justify-between max-w-sm mx-auto"><span className="text-muted-foreground">Sun</span><span className="font-medium">Closed</span></p>
           </div>
         </div>
       </section>
