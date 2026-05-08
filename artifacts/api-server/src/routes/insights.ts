@@ -10,6 +10,19 @@ import type { InsightRecord } from "../data/content";
 const router: IRouter = Router();
 
 const HEALTHCARE_GOV = "https://www.healthcare.gov";
+const HTML_ENTITIES: Record<string, string> = {
+  nbsp: " ",
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  "#39": "'",
+  rsquo: "\u2019",
+  ldquo: "\u201C",
+  rdquo: "\u201D",
+  mdash: "\u2014",
+  ndash: "\u2013",
+};
 
 const CURATED_ARTICLES: { url: string; category: string; coverImageUrl: string }[] = [
   {
@@ -62,19 +75,18 @@ const CURATED_ARTICLES: { url: string; category: string; coverImageUrl: string }
 function stripHtml(html: string): string {
   return html
     .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&rsquo;/g, "\u2019")
-    .replace(/&ldquo;/g, "\u201C")
-    .replace(/&rdquo;/g, "\u201D")
-    .replace(/&mdash;/g, "\u2014")
-    .replace(/&ndash;/g, "\u2013")
+    .replace(/&(nbsp|amp|lt|gt|quot|#39|rsquo|ldquo|rdquo|mdash|ndash);/g, (entity) => {
+      return HTML_ENTITIES[entity.slice(1, -1)] ?? entity;
+    })
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function getStringField(value: unknown, key: string): string | undefined {
+  if (!value || typeof value !== "object") return undefined;
+
+  const candidate = (value as Record<string, unknown>)[key];
+  return typeof candidate === "string" ? candidate : undefined;
 }
 
 function urlToSlug(url: string): string {
@@ -103,22 +115,23 @@ async function fetchInsights(): Promise<InsightRecord[]> {
       const res = await fetch(`${HEALTHCARE_GOV}${article.url}.json`);
       if (!res.ok) return null;
       const data = await res.json();
-      const plainText = stripHtml(data.content || "");
+      const content = getStringField(data, "content") ?? "";
+      const title = getStringField(data, "title") ?? "";
+      const date = getStringField(data, "date");
+      const plainText = stripHtml(content);
       const excerpt = plainText.slice(0, 200).replace(/\s\S*$/, "") + "...";
 
       return {
         id: `hcg_${urlToSlug(article.url)}`,
         slug: urlToSlug(article.url),
-        title: (data.title || "").trim(),
+        title: title.trim(),
         excerpt,
-        body: data.content || "",
+        body: content,
         category: article.category,
         readMinutes: estimateReadMinutes(plainText),
         coverImageUrl: article.coverImageUrl,
         authorName: "HealthCare.gov",
-        publishedAt: data.date
-          ? new Date(data.date).toISOString()
-          : new Date().toISOString(),
+        publishedAt: date ? new Date(date).toISOString() : new Date().toISOString(),
         sourceUrl: `${HEALTHCARE_GOV}${article.url}`,
       } satisfies InsightRecord;
     }),
