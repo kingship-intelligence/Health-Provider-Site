@@ -31,10 +31,12 @@ You need **two terminals** — one for the API and one for the frontend.
 ```bash
 export PORT=8081
 export DATABASE_URL="postgresql://$USER@localhost:5432/health_provider"
+export OPENAI_API_KEY="your-openai-api-key"
 pnpm --filter @workspace/api-server run dev
 ```
 
 The API runs at `http://127.0.0.1:8081` and auto-restarts on file changes.
+`OPENAI_API_KEY` powers the homepage chatbot. Keep it local and never commit it.
 
 ### Terminal 2 — Frontend (port 8080)
 

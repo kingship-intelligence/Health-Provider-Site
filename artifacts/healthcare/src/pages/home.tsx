@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { ProviderAvatar } from "@/components/provider-avatar";
+import { HomeChatbot } from "@/components/home-chatbot";
 import { formatFixed, formatNumber, toSafeNumber } from "@/lib/format-number";
 
 export default function Home() {
@@ -164,6 +165,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <HomeChatbot />
     </div>
   );
 }

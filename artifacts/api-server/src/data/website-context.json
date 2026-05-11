@@ -1,0 +1,210 @@
+{
+  "business": {
+    "name": "Restoration LLC",
+    "tagline": "Let's Create Your Path To Wellness.",
+    "description": "Restoration LLC provides personalized outpatient psychiatric care and therapy services focused on mental wellness, balance, and compassionate support.",
+    "careModel": [
+      "Evidence-based mental health services for optimum wellness.",
+      "Clinic visits and telehealth visits through video/audio.",
+      "Fast, reliable, efficient service available to clients in the comfort of their homes.",
+      "Patient-provider communications are protected through security and encryption technology.",
+      "Strict adherence to HIPAA BAA regulations, ethics, and confidentiality.",
+      "Outpatient mental health services for ages 6 through geriatric patients."
+    ],
+    "values": [
+      { "name": "Respect", "description": "Treating every patient with dignity and honoring their individual journey." },
+      { "name": "Empathy", "description": "Understanding and sharing the feelings of patients." },
+      { "name": "Support", "description": "Providing comprehensive care throughout the treatment process." },
+      { "name": "Reliable", "description": "Consistent, dependable care patients can count on." },
+      { "name": "Timely", "description": "Respecting patient time with prompt and efficient service." },
+      { "name": "Outstanding", "description": "Committed to excellence in all aspects of care." },
+      { "name": "Accessible", "description": "Making services available to those who need them." },
+      { "name": "Immaculate", "description": "Maintaining high standards of care and professionalism." }
+    ],
+    "stats": {
+      "patientsServed": 6200,
+      "providerCount": 2,
+      "locationCount": 1,
+      "averageRating": 4.9,
+      "yearsInCommunity": 12,
+      "sameDayAvailability": true
+    }
+  },
+  "contact": {
+    "locationName": "Restoration LLC",
+    "address": {
+      "line1": "2 E Rolling Crossroads",
+      "line2": "Suite #207",
+      "city": "Catonsville",
+      "state": "MD",
+      "postalCode": "21228",
+      "country": "US"
+    },
+    "phone": "(443) 851-9085",
+    "displayAddress": "2 E Rolling Crossroads, Suite #207, Catonsville, MD 21228",
+    "websitePages": {
+      "appointments": "/appointments",
+      "contact": "/contact",
+      "providers": "/providers",
+      "services": "/services",
+      "insurance": "/insurance",
+      "about": "/about"
+    }
+  },
+  "hours": [
+    { "day": "Monday", "opens": "08:00", "closes": "19:00" },
+    { "day": "Tuesday", "opens": "08:00", "closes": "19:00" },
+    { "day": "Wednesday", "opens": "08:00", "closes": "19:00" },
+    { "day": "Thursday", "opens": "08:00", "closes": "19:00" },
+    { "day": "Friday", "opens": "08:00", "closes": "17:00" },
+    { "day": "Saturday", "opens": "09:00", "closes": "14:00" },
+    { "day": "Sunday", "opens": "Closed", "closes": "Closed" }
+  ],
+  "homepageWorkHours": [
+    { "day": "Monday-Friday", "hours": "9am-9pm" },
+    { "day": "Saturday", "hours": "10am-4pm" },
+    { "day": "Sunday", "hours": "Closed" }
+  ],
+  "services": [
+    {
+      "name": "ADHD",
+      "slug": "adhd",
+      "tagline": "Comprehensive assessment and treatment for Attention-Deficit/Hyperactivity Disorder",
+      "description": "Comprehensive psychiatric assessment and treatment for ADHD with careful attention to symptoms, functioning, and patient goals.",
+      "highlights": ["Detailed diagnostic evaluation", "Medication management when appropriate", "Adult and adolescent care", "Coaching and behavioral support"],
+      "conditionsTreated": ["Inattention", "Hyperactivity", "Impulsivity", "Executive dysfunction"]
+    },
+    {
+      "name": "Major Depression",
+      "slug": "major-depression",
+      "tagline": "Evidence-based treatments for depressive disorders",
+      "description": "Evidence-based treatment for depressive disorders, including psychotherapy, medication management, and ongoing support.",
+      "highlights": ["Psychiatric evaluation", "Medication management", "Therapy coordination", "Relapse prevention planning"],
+      "conditionsTreated": ["Persistent sadness", "Low motivation", "Sleep disruption", "Loss of interest"]
+    },
+    {
+      "name": "Bipolar Disorder",
+      "slug": "bipolar-disorder",
+      "tagline": "Specialized care for mood stabilization and management",
+      "description": "Specialized care focused on mood stabilization, diagnosis, and ongoing management for bipolar disorders.",
+      "highlights": ["Mood monitoring", "Medication optimization", "Family education", "Long-term follow-up"],
+      "conditionsTreated": ["Bipolar I", "Bipolar II", "Hypomania", "Mania"]
+    },
+    {
+      "name": "Anxiety Disorders",
+      "slug": "anxiety-disorders",
+      "tagline": "Treatment for generalized anxiety, social phobia, and panic disorders",
+      "description": "Treatment for generalized anxiety, social phobia, and panic disorders with practical, evidence-based care.",
+      "highlights": ["Anxiety assessment", "CBT-informed treatment planning", "Medication support", "Panic management strategies"],
+      "conditionsTreated": ["Generalized anxiety", "Social phobia", "Panic disorder", "Phobias"]
+    },
+    {
+      "name": "PTSD",
+      "slug": "ptsd",
+      "tagline": "Trauma-informed care for Post-Traumatic Stress Disorder",
+      "description": "Trauma-informed psychiatric care for Post-Traumatic Stress Disorder with sensitivity, structure, and support.",
+      "highlights": ["Trauma-informed evaluations", "Safety-first treatment approach", "Medication management", "Therapy referral support"],
+      "conditionsTreated": ["PTSD", "Acute stress", "Trauma-related symptoms"]
+    },
+    {
+      "name": "Schizophrenia",
+      "slug": "schizophrenia",
+      "tagline": "Comprehensive treatment plans for psychotic disorders",
+      "description": "Comprehensive treatment plans for psychotic disorders centered on stabilization, continuity, and family support.",
+      "highlights": ["Diagnostic clarity", "Ongoing medication management", "Care coordination", "Supportive family communication"],
+      "conditionsTreated": ["Schizophrenia", "Psychosis", "Schizoaffective disorder"]
+    },
+    {
+      "name": "Substance Abuse",
+      "slug": "substance-abuse",
+      "tagline": "Support and treatment for substance use disorders",
+      "description": "Support and treatment for substance use disorders with a compassionate, nonjudgmental approach.",
+      "highlights": ["Recovery-focused planning", "Medication support", "Relapse prevention", "Integrated treatment referrals"],
+      "conditionsTreated": ["Alcohol use disorder", "Opioid use disorder", "Substance misuse"]
+    },
+    {
+      "name": "OCD",
+      "slug": "ocd",
+      "tagline": "Specialized approaches for Obsessive-Compulsive Disorder",
+      "description": "Specialized psychiatric approaches for Obsessive-Compulsive Disorder, including careful diagnosis and coordinated treatment.",
+      "highlights": ["Thoughtful assessment", "Medication management", "Therapy collaboration", "Symptom monitoring"],
+      "conditionsTreated": ["Obsessions", "Compulsions", "Intrusive thoughts"]
+    }
+  ],
+  "providers": [
+    {
+      "name": "Dr. Olayemi Olajuyigbe",
+      "credentials": "DNP, PMHNP-BC, CRNP",
+      "specialty": "Psychiatric Nurse Practitioner",
+      "acceptingNewPatients": true,
+      "languages": ["English", "Yoruba"],
+      "rating": 4.9,
+      "reviewCount": 184,
+      "bio": "Board-Certified Psychiatric Nurse Practitioner with over 14 years of healthcare service experience in the Baltimore/Washington DC area. Provides medication management to children and adults and focuses on restoring wellness through customized, holistic, patient-centered care.",
+      "topSpecialties": ["Bipolar Disorder", "Medication Management", "ADHD"],
+      "clientFocus": {
+        "ages": ["Children (6 to 10)", "Preteen", "Teen", "Adults", "Elders (65+)"],
+        "participants": ["Individuals", "Couples", "Family"]
+      },
+      "treatmentApproach": ["Cognitive Behavioral (CBT)", "Emotionally Focused", "Interpersonal", "Person-Centered", "Medication Management", "Suboxone Clinic"]
+    },
+    {
+      "name": "Dr. Bolanle Olajuyigbe",
+      "credentials": "DNP, PMHNP-BC",
+      "specialty": "Psychiatric Nurse Practitioner",
+      "acceptingNewPatients": true,
+      "languages": ["English"],
+      "rating": 5,
+      "reviewCount": 156,
+      "bio": "Dedicated nursing educator and psychiatric mental health practitioner with a Doctor of Nursing Practice and specialized certifications in Psychiatry Mental Health."
+    }
+  ],
+  "insurance": {
+    "acceptedPlans": [
+      "Aetna",
+      "Amerigroup",
+      "Aetna Medicaid",
+      "Cigna",
+      "Johns Hopkins HealthCare",
+      "Priority Partners",
+      "MD Physicians Care",
+      "Medicare",
+      "United Healthcare",
+      "University of MD Health Plans",
+      "Medstar Medicaid",
+      "Medicaid of Maryland",
+      "CareFirst BCBS",
+      "Tricare",
+      "UHC"
+    ],
+    "medicaidProviders": [
+      "United Healthcare",
+      "Medicare",
+      "University of Maryland Medical System Health Plans",
+      "Aetna",
+      "Cigna",
+      "Johns Hopkins Medicine",
+      "AmeriSolutions",
+      "Johns Hopkins Healthcare"
+    ],
+    "guidance": [
+      "Patients should contact their insurance provider directly to verify mental health benefits and coverage before an appointment.",
+      "Restoration LLC bills insurance companies directly for services rendered.",
+      "Copayments, deductibles, or coinsurance are due at the time of service.",
+      "Administrative staff can help answer questions about insurance coverage and payment options."
+    ]
+  },
+  "appointments": {
+    "requestPath": "/appointments",
+    "summary": "New and returning patients can request an appointment online. The team reviews appointment details and follows up with next steps.",
+    "intakeForm": "/intake-form.pdf"
+  },
+  "safetyAndScope": {
+    "notForEmergencies": "For medical emergencies, call 911 immediately or go to the nearest emergency room.",
+    "chatbotBoundaries": [
+      "The chatbot can answer general website questions about services, providers, insurance, appointments, location, contact details, and hours.",
+      "The chatbot must not diagnose, provide treatment plans, give medication advice, provide crisis counseling, or replace professional medical care.",
+      "For urgent medical concerns, users should call 911 or seek emergency care."
+    ]
+  }
+}

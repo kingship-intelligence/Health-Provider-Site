@@ -2,6 +2,12 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import aetnaLogo from "../../../../img/Aetna.png";
+import amerigroupLogo from "../../../../img/Amerigroup.jpg";
+import cignaLogo from "../../../../img/Cigna.png";
+import medicaidLogo from "../../../../img/medicaid.png";
+import medicareLogo from "../../../../img/medicare.png";
+import universityMdLogo from "../../../../img/UniversitMDHealth.png";
 
 const acceptedInsurance = [
   "Aetna",
@@ -32,6 +38,17 @@ const medicaidProviders = [
   "Johns Hopkins Healthcare",
 ];
 
+const insuranceLogos: Record<string, string> = {
+  Aetna: aetnaLogo,
+  "Aetna Medicaid": aetnaLogo,
+  Amerigroup: amerigroupLogo,
+  Cigna: cignaLogo,
+  "Medicaid of Maryland": medicaidLogo,
+  Medicare: medicareLogo,
+  "University of MD Health Plans": universityMdLogo,
+  "University of Maryland Medical System Health Plans": universityMdLogo,
+};
+
 const infoCards = [
   {
     title: "Verifying Your Insurance",
@@ -51,6 +68,23 @@ const infoCards = [
 ];
 
 export default function Insurance() {
+  const renderInsuranceCard = (name: string, i: number) => {
+    const logo = insuranceLogos[name];
+
+    return (
+      <motion.div key={name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }}>
+        <Card className="border-none bg-card shadow-sm rounded-2xl h-full">
+          <CardContent className="p-5 flex min-h-[100px] flex-col items-center justify-center gap-3 text-center">
+            {logo ? (
+              <img src={logo} alt={`${name} logo`} className="max-h-12 max-w-[140px] object-contain" />
+            ) : null}
+            <p className="font-medium">{name}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-background pb-24">
       <section className="pt-24 pb-20 bg-muted/30">
@@ -66,15 +100,7 @@ export default function Insurance() {
         <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-2xl md:text-3xl font-serif mb-10 text-center">Insurance Plans</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {acceptedInsurance.map((name, i) => (
-              <motion.div key={name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }}>
-                <Card className="border-none bg-card shadow-sm rounded-2xl h-full">
-                  <CardContent className="p-5 flex items-center justify-center text-center min-h-[80px]">
-                    <p className="font-medium">{name}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            {acceptedInsurance.map(renderInsuranceCard)}
           </div>
         </div>
       </section>
@@ -83,15 +109,7 @@ export default function Insurance() {
         <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-2xl md:text-3xl font-serif mb-10 text-center">Medicaid Providers</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {medicaidProviders.map((name, i) => (
-              <motion.div key={name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }}>
-                <Card className="border-none bg-card shadow-sm rounded-2xl h-full">
-                  <CardContent className="p-5 flex items-center justify-center text-center min-h-[80px]">
-                    <p className="font-medium">{name}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            {medicaidProviders.map(renderInsuranceCard)}
           </div>
         </div>
       </section>
