@@ -7,6 +7,8 @@ const envPaths = [
   resolve(process.cwd(), "../../.env"),
 ].filter((path) => existsSync(path));
 
+const shouldOverrideWithDotEnv = process.env["NODE_ENV"] !== "production";
+
 for (const path of envPaths) {
-  config({ path, override: false });
+  config({ path, override: shouldOverrideWithDotEnv });
 }

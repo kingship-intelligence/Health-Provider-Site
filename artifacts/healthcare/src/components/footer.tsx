@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import restorationLogo from "../../../../img/Restoration.png";
 
 const quickLinks = [
   { href: "/providers", label: "Providers" },
@@ -22,7 +23,9 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-serif text-xl font-medium text-primary mb-4">Restoration LLC</h3>
+            <Link href="/" className="mb-4 flex items-center gap-2">
+              <img src={restorationLogo} alt="Restoration LLC Behavioral Health Services logo" className="h-36 w-auto max-w-[480px] object-contain" />
+            </Link>
             <p className="text-sm text-muted-foreground mb-4">
               A modern psychiatry clinic offering thoughtful, unhurried mental health care for adults, teens, and children.
             </p>
@@ -68,10 +71,8 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">
               (443) 851-9085
               <br />
-              (443) 833-3065
+              Fax: (443) 833-3065
               <br /><br />
-              info@restorationllc.net
-              <br />
               restorationllc.bhs@gmail.com
             </p>
           </div>

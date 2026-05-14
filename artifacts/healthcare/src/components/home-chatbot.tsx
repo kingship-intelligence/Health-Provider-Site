@@ -1,5 +1,7 @@
 import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import { Bot, CalendarDays, MessageCircle, Minus, Send } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Link } from "wouter";
 
 import { Button } from "@/components/ui/button";
@@ -28,6 +30,32 @@ const initialMessages: ChatMessage[] = [
 
 const fallbackReply =
   "I can help with appointments, services, accepted insurance, work hours, providers, and contact details. For urgent medical concerns, please call 911 or go to the nearest emergency room.";
+
+function ChatMessageContent({ message }: { message: ChatMessage }) {
+  if (message.role === "user") {
+    return <>{message.text}</>;
+  }
+
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        a: ({ ...props }) => (
+          <a className="font-medium text-primary underline underline-offset-2" target="_blank" rel="noreferrer" {...props} />
+        ),
+        code: ({ ...props }) => (
+          <code className="rounded bg-muted px-1 py-0.5 font-mono text-[0.85em]" {...props} />
+        ),
+        ol: ({ ...props }) => <ol className="ml-4 list-decimal space-y-1" {...props} />,
+        p: ({ ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+        strong: ({ ...props }) => <strong className="font-semibold" {...props} />,
+        ul: ({ ...props }) => <ul className="ml-4 list-disc space-y-1" {...props} />,
+      }}
+    >
+      {message.text}
+    </ReactMarkdown>
+  );
+}
 
 export function HomeChatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -141,7 +169,7 @@ export function HomeChatbot() {
                     : "mr-auto max-w-[85%] rounded-2xl rounded-bl-sm bg-card px-4 py-2 text-sm shadow-sm"
                 }
               >
-                {chatMessage.text}
+                <ChatMessageContent message={chatMessage} />
               </div>
             ))}
             {isThinking ? (

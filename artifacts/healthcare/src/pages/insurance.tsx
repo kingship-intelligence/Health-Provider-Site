@@ -2,12 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import aetnaLogo from "../../../../img/Aetna.png";
-import amerigroupLogo from "../../../../img/Amerigroup.jpg";
-import cignaLogo from "../../../../img/Cigna.png";
-import medicaidLogo from "../../../../img/medicaid.png";
-import medicareLogo from "../../../../img/medicare.png";
-import universityMdLogo from "../../../../img/UniversitMDHealth.png";
+import { insuranceLogos } from "@/lib/insurance-logos";
 
 const acceptedInsurance = [
   "Aetna",
@@ -37,17 +32,6 @@ const medicaidProviders = [
   "AmeriSolutions",
   "Johns Hopkins Healthcare",
 ];
-
-const insuranceLogos: Record<string, string> = {
-  Aetna: aetnaLogo,
-  "Aetna Medicaid": aetnaLogo,
-  Amerigroup: amerigroupLogo,
-  Cigna: cignaLogo,
-  "Medicaid of Maryland": medicaidLogo,
-  Medicare: medicareLogo,
-  "University of MD Health Plans": universityMdLogo,
-  "University of Maryland Medical System Health Plans": universityMdLogo,
-};
 
 const infoCards = [
   {

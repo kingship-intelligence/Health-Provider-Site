@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import restorationLogo from "../../../../img/Restoration.png";
 
 const links = [
   { href: "/providers", label: "Providers" },
@@ -13,9 +14,9 @@ const links = [
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="container mx-auto px-4 h-32 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="font-serif text-xl font-medium text-primary">Restoration LLC</span>
+          <img src={restorationLogo} alt="Restoration LLC Behavioral Health Services logo" className="h-28 w-auto max-w-[460px] object-contain" />
         </Link>
         <nav className="hidden md:flex gap-6 items-center">
           {links.map((link) => (
