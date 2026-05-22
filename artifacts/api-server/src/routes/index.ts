@@ -8,6 +8,7 @@ import insightsRouter from "./insights";
 import statsRouter from "./stats";
 import appointmentsRouter from "./appointments";
 import contactRouter from "./contact";
+import chatRouter from "./chat";
 
 const router: IRouter = Router();
 
@@ -20,5 +21,6 @@ router.use(insightsRouter);
 router.use(statsRouter);
 router.use(appointmentsRouter);
 router.use(contactRouter);
+router.use(chatRouter);
 
 export default router;

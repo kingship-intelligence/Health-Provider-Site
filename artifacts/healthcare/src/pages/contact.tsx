@@ -210,12 +210,21 @@ export default function Contact() {
               ))}
             </div>
             
-            <div className="mt-12 bg-card border rounded-3xl p-8 text-center shadow-sm">
-              <h3 className="text-xl font-serif mb-4">Join Our Team</h3>
-              <p className="text-muted-foreground mb-6">
-                We are always looking for compassionate providers and support staff to join our growing network.
-              </p>
-              <Button variant="outline" className="rounded-full">View Careers</Button>
+            <div className="mt-12 overflow-hidden rounded-3xl border bg-card shadow-sm">
+              <div className="p-6">
+                <h3 className="text-xl font-serif mb-2">Find Us</h3>
+                <p className="text-muted-foreground">
+                  2 E Rolling Crossroads, Suite #207, Catonsville, MD 21228
+                </p>
+              </div>
+              <iframe
+                title="Map to Restoration LLC"
+                src="https://www.google.com/maps?q=2%20E%20Rolling%20Crossroads%20Suite%20207%20Catonsville%20MD%2021228&output=embed"
+                className="h-80 w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </div>
 
