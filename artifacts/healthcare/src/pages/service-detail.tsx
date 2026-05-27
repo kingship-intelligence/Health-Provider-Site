@@ -1,4 +1,5 @@
 import { useParams, Link } from "wouter";
+import { APPOINTMENT_REQUEST_URL } from "@/lib/site-links";
 import { useGetService, useListProviders } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -30,9 +31,9 @@ export default function ServiceDetail() {
               <h1 className="text-4xl md:text-5xl font-serif mb-4">{service.name}</h1>
               <p className="text-2xl text-muted-foreground font-serif italic mb-6">{service.tagline}</p>
               <p className="text-lg leading-relaxed mb-8">{service.description}</p>
-              <Link href={`/appointments?serviceId=${service.id}`}>
+              <a href={APPOINTMENT_REQUEST_URL} target="_blank" rel="noreferrer">
                 <Button size="lg" className="rounded-full px-8 h-14 text-base">Request Appointment</Button>
-              </Link>
+              </a>
             </div>
             <div className="w-full md:w-1/2">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-muted">

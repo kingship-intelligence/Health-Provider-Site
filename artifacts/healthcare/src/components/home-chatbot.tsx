@@ -2,10 +2,10 @@ import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import { Bot, CalendarDays, MessageCircle, Minus, Send } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Link } from "wouter";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { APPOINTMENT_REQUEST_URL } from "@/lib/site-links";
 
 type ChatMessage = {
   id: number;
@@ -211,10 +211,15 @@ export function HomeChatbot() {
             </form>
 
             <div className="flex flex-wrap gap-2 text-xs">
-              <Link href="/appointments" className="inline-flex items-center gap-1 text-primary hover:underline">
+              <a
+                href={APPOINTMENT_REQUEST_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-primary hover:underline"
+              >
                 <CalendarDays className="size-3" aria-hidden="true" />
                 Request appointment
-              </Link>
+              </a>
               <span className="text-muted-foreground">Not for emergencies or medical diagnosis.</span>
             </div>
           </div>

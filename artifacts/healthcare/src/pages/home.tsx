@@ -4,6 +4,7 @@ import {
   useListTestimonials,
 } from "@workspace/api-client-react";
 import { Link } from "wouter";
+import { APPOINTMENT_REQUEST_URL } from "@/lib/site-links";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -86,7 +87,9 @@ export default function Home() {
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-wrap gap-4">
               <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
-                <Link href="/appointments"><Button size="lg" className="text-base h-14 px-8 rounded-full">Request Appointment</Button></Link>
+                <a href={APPOINTMENT_REQUEST_URL} target="_blank" rel="noreferrer">
+                  <Button size="lg" className="text-base h-14 px-8 rounded-full">Request Appointment</Button>
+                </a>
               </motion.div>
               <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
                 <Link href="/contact"><Button size="lg" variant="outline" className="text-base h-14 px-8 rounded-full bg-background/50 backdrop-blur">Contact Us</Button></Link>

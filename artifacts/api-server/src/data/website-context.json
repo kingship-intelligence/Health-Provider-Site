@@ -47,7 +47,7 @@
     ],
     "displayAddress": "2 E Rolling Crossroads, Suite #207, Catonsville, MD 21228",
     "websitePages": {
-      "appointments": "/appointments",
+      "appointments": "https://web.gobreeze.com/guest/guestAppointment?practiceId=5462",
       "contact": "/contact",
       "providers": "/providers",
       "services": "/services",
@@ -200,8 +200,8 @@
     ]
   },
   "appointments": {
-    "requestPath": "/appointments",
-    "summary": "New and returning patients can request an appointment online. The team reviews appointment details and follows up with next steps."
+    "requestPath": "https://web.gobreeze.com/guest/guestAppointment?practiceId=5462",
+    "summary": "New and returning patients can request an appointment online through Breeze. The team reviews appointment details and follows up with next steps."
   },
   "safetyAndScope": {
     "notForEmergencies": "For medical emergencies, call 911 immediately or go to the nearest emergency room.",

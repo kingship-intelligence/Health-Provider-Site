@@ -1,4 +1,5 @@
 import { useParams, Link } from "wouter";
+import { APPOINTMENT_REQUEST_URL } from "@/lib/site-links";
 import { useGetProvider, useListLocations } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -41,9 +42,9 @@ export default function ProviderDetail() {
               <p className="text-2xl text-primary mb-6">{provider.specialty}</p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl">{provider.bio}</p>
               <div className="flex gap-4">
-                <Link href={`/appointments?providerId=${provider.id}`}>
+                <a href={APPOINTMENT_REQUEST_URL} target="_blank" rel="noreferrer">
                   <Button size="lg" className="rounded-full px-8 h-14 text-base">Request Appointment</Button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
