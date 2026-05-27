@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import restorationLogo from "../../../../img/Restoration.png";
+import { APPOINTMENT_REQUEST_URL } from "@/lib/site-links";
 
 const links = [
   { href: "/providers", label: "Providers" },
@@ -25,9 +26,14 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
-        <Link href="/appointments" className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
+        <a
+          href={APPOINTMENT_REQUEST_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
+        >
           Request Appointment
-        </Link>
+        </a>
       </div>
     </header>
   );
