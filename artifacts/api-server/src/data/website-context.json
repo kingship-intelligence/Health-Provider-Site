@@ -152,16 +152,6 @@
         "participants": ["Individuals", "Couples", "Family"]
       },
       "treatmentApproach": ["Cognitive Behavioral (CBT)", "Emotionally Focused", "Interpersonal", "Person-Centered", "Medication Management", "Suboxone Clinic"]
-    },
-    {
-      "name": "Dr. Bolanle Olajuyigbe",
-      "credentials": "DNP, PMHNP-BC",
-      "specialty": "Psychiatric Nurse Practitioner",
-      "acceptingNewPatients": true,
-      "languages": ["English"],
-      "rating": 5,
-      "reviewCount": 156,
-      "bio": "Dedicated nursing educator and psychiatric mental health practitioner with a Doctor of Nursing Practice and specialized certifications in Psychiatry Mental Health."
     }
   ],
   "insurance": {

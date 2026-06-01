@@ -1,6 +1,7 @@
 import { useParams, Link } from "wouter";
 import { APPOINTMENT_REQUEST_URL } from "@/lib/site-links";
 import { useGetService, useListProviders } from "@workspace/api-client-react";
+import { isFeaturedProvider } from "@/lib/providers";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,6 +11,7 @@ export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { data: service, isLoading } = useGetService(slug || "");
   const { data: providers } = useListProviders({ specialty: service?.name });
+  const featuredProviders = providers?.filter((p) => isFeaturedProvider(p.id)) ?? [];
 
   if (isLoading) return <div className="container mx-auto px-4 py-24 min-h-screen">Loading...</div>;
   if (!service) return <div className="container mx-auto px-4 py-24 min-h-screen">Service not found</div>;
@@ -74,10 +76,10 @@ export default function ServiceDetail() {
             <div className="bg-muted/30 rounded-3xl p-8 border">
               <h2 className="text-2xl font-serif mb-8">Specialists in {service.name}</h2>
               <div className="space-y-4">
-                {providers?.length === 0 ? (
+                {featuredProviders.length === 0 ? (
                   <p className="text-muted-foreground">We are currently adding providers for this specialty.</p>
                 ) : (
-                  providers?.slice(0, 3).map((provider) => (
+                  featuredProviders.map((provider) => (
                     <Link key={provider.id} href={`/providers/${provider.id}`}>
                       <Card className="hover:shadow-md transition-shadow cursor-pointer border-none rounded-2xl">
                         <CardContent className="p-4 flex items-center gap-4">
@@ -93,10 +95,10 @@ export default function ServiceDetail() {
                     </Link>
                   ))
                 )}
-                {providers && providers.length > 3 && (
+                {featuredProviders.length > 0 && (
                   <div className="pt-4 text-center">
-                    <Link href={`/providers?specialty=${encodeURIComponent(service.name)}`}>
-                      <Button variant="ghost" className="w-full">View All Specialists</Button>
+                    <Link href="/providers">
+                      <Button variant="ghost" className="w-full">View Provider Profile</Button>
                     </Link>
                   </div>
                 )}

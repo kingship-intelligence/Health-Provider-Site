@@ -137,8 +137,8 @@ export default function Home() {
       <section className="py-24">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <motion.h2 className="text-3xl md:text-4xl font-serif mb-12" initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeInUp} transition={{ duration: 0.5 }}>Don't just take our word for it</motion.h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials?.slice(0, 2).map((t, i) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials?.map((t, i) => (
               <motion.div key={t.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ delay: i * 0.15, duration: 0.45 }} whileHover={{ y: -4 }} className="bg-card p-8 rounded-3xl text-left shadow-sm border">
                 <div className="flex text-secondary mb-4">{[...Array(t.rating)].map((_, j) => (<span key={j}>★</span>))}</div>
                 <p className="text-lg text-foreground italic mb-6">"{t.quote}"</p>
