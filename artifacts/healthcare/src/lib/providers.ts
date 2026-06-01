@@ -1,6 +1,2 @@
-/** Provider shown on the public Providers page and related UI. */
-export const FEATURED_PROVIDER_ID = "p_olayemi_olajuyigbe";
-
-export function isFeaturedProvider(id: string): boolean {
-  return id === FEATURED_PROVIDER_ID;
-}
+/** Default provider selected on the Providers page dropdown. */
+export const DEFAULT_PROVIDER_ID = "p_olayemi_olajuyigbe";
