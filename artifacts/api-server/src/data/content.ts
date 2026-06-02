@@ -274,22 +274,51 @@ export const locations: LocationRecord[] = [
 export const testimonials: TestimonialRecord[] = [
   {
     id: "t_1",
-    patientName: "Elena Marquez",
-    patientLocation: "North Park",
+    patientName: "JJ",
+    patientLocation: "Maryland",
     rating: 5,
     quote:
-      "For the first time in years, I left a psychiatry appointment feeling like someone actually heard me. My teen looks forward to seeing Dr. Bolanle, which I never thought I'd say.",
-    serviceName: "Child & Adolescent Psychiatry",
-    providerName: "Dr. Bolanle Olajuyigbe",
+      "Dr. O and his team are great! I have been under Dr.O's care for about 4 years now. He has changed my Life for the Best!",
+    serviceName: "Psychiatry",
+    providerName: "Dr. Olayemi Olajuyigbe",
   },
   {
     id: "t_2",
-    patientName: "Owen Whittaker",
-    patientLocation: "North Park",
+    patientName: "DW",
+    patientLocation: "Maryland",
+    rating: 5,
+    quote: "Listened to my concerns, very flexible with appointment times.",
+    serviceName: "Psychiatry",
+    providerName: "Dr. Olayemi Olajuyigbe",
+  },
+  {
+    id: "t_3",
+    patientName: "PE",
+    patientLocation: "Maryland",
     rating: 5,
     quote:
-      "I came in scared about starting medication. Dr. Olayemi walked me through every option, every trade-off, and never rushed me. Calm, kind, and incredibly competent.",
-    serviceName: "Adult Psychiatry",
+      "Very supportive with my treatment. I am confident in my progress. All my inquiries are answered in a timely manner. I would recommend him to everyone.",
+    serviceName: "Psychiatry",
+    providerName: "Dr. Olayemi Olajuyigbe",
+  },
+  {
+    id: "t_4",
+    patientName: "KV",
+    patientLocation: "Maryland",
+    rating: 5,
+    quote:
+      "Doctor O is kind, respectful and accommodating. He respects my autonomy and personal choice regarding my treatment. His staff is helpful with scheduling, and they call the day of my appointments which is a very helpful reminder. Appointments can be very short, especially for periodic check-ins around refill time as long as there are no concerns, which is quite alright with me!",
+    serviceName: "Psychiatry",
+    providerName: "Dr. Olayemi Olajuyigbe",
+  },
+  {
+    id: "t_5",
+    patientName: "MK",
+    patientLocation: "Maryland",
+    rating: 5,
+    quote:
+      "He listens to my concerns, and we try work together to find best solutions. And medications. I would highly recommend",
+    serviceName: "Psychiatry",
     providerName: "Dr. Olayemi Olajuyigbe",
   },
 ];

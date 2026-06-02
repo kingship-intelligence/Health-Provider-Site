@@ -77,7 +77,7 @@ export default function ServiceDetail() {
                 {providers?.length === 0 ? (
                   <p className="text-muted-foreground">We are currently adding providers for this specialty.</p>
                 ) : (
-                  providers?.slice(0, 3).map((provider) => (
+                  providers?.map((provider) => (
                     <Link key={provider.id} href={`/providers/${provider.id}`}>
                       <Card className="hover:shadow-md transition-shadow cursor-pointer border-none rounded-2xl">
                         <CardContent className="p-4 flex items-center gap-4">
@@ -93,10 +93,10 @@ export default function ServiceDetail() {
                     </Link>
                   ))
                 )}
-                {providers && providers.length > 3 && (
+                {providers && providers.length > 0 && (
                   <div className="pt-4 text-center">
-                    <Link href={`/providers?specialty=${encodeURIComponent(service.name)}`}>
-                      <Button variant="ghost" className="w-full">View All Specialists</Button>
+                    <Link href="/providers">
+                      <Button variant="ghost" className="w-full">View All Providers</Button>
                     </Link>
                   </div>
                 )}
